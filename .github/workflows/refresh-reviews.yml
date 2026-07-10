@@ -1,12 +1,14 @@
 name: Refresh Google review count
 
-# Scrapes the current Google rating + review count and commits data/reviews.json
-# when it changes. The push then auto-builds on Netlify (repo is public, so no
-# verified-contributor gate). Fails safe: if the scrape is blocked, the script
-# leaves the file untouched and exits 0, so a blocked run is a no-op, not a failure.
+# Reads the current Google rating + review count from the Places API and commits
+# data/reviews.json when it changes. The push then auto-builds on Netlify (public
+# repo, no verified-contributor gate). Fails safe: on any API hiccup the script
+# leaves the file untouched and exits 0, so a bad run is a no-op, not a failure.
+#
+# Requires repo secret GOOGLE_MAPS_API_KEY (a Places-API-enabled Google Cloud key).
 
 on:
-  workflow_dispatch:        # manual runs (used for testing)
+  workflow_dispatch:        # manual runs
   schedule:
     - cron: '0 7 1,15 * *'  # ~biweekly: 1st & 15th of each month, 07:00 UTC
 
@@ -20,41 +22,18 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-
-      - name: Cache stealth Chromium
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: ms-playwright-${{ runner.os }}-v1
-
-      - name: Install scraper deps + stealth browser
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r scripts/requirements.txt
-          # Scrapling's StealthySession launches patchright's Chromium — install it
-          # plus its system libs (the runner has sudo).
-          python -m patchright install chromium
-          sudo "$(which python)" -m patchright install-deps chromium \
-            || sudo "$(which python)" -m playwright install-deps chromium || true
+          python-version: '3.12'
 
       - name: Refresh reviews.json
         env:
-          REVIEWS_DEBUG: /tmp/revdbg
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
         run: python scripts/refresh-reviews.py --out data/reviews.json
-
-      - name: Upload debug capture
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: reviews-debug
-          path: /tmp/revdbg.*
-          if-no-files-found: ignore
 
       - name: Commit if the number changed
         run: |
