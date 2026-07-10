@@ -44,7 +44,17 @@ jobs:
             || sudo "$(which python)" -m playwright install-deps chromium || true
 
       - name: Refresh reviews.json
+        env:
+          REVIEWS_DEBUG: /tmp/revdbg
         run: python scripts/refresh-reviews.py --out data/reviews.json
+
+      - name: Upload debug capture
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviews-debug
+          path: /tmp/revdbg.*
+          if-no-files-found: ignore
 
       - name: Commit if the number changed
         run: |

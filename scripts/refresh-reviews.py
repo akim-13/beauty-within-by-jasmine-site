@@ -215,6 +215,45 @@ def load_prev(path):
         return None
 
 
+def page_html(page):
+    for attr in ("html_content", "body"):
+        try:
+            v = getattr(page, attr)
+            if isinstance(v, str) and v:
+                return v
+        except Exception:
+            pass
+    try:
+        return str(page)
+    except Exception:
+        return ""
+
+
+def dump_debug(page, path):
+    """When REVIEWS_DEBUG is set, save what the scraper actually saw (final URL,
+    .F7nice match count, star/review aria-labels, raw HTML) so a headless/CI render
+    that parses to nothing can be diagnosed from an uploaded artifact."""
+    try:
+        labels = [l for l in labels_in(page) if re.search(r"star|review", l, re.I)]
+        try:
+            f7 = len(page.css(".F7nice"))
+        except Exception:
+            f7 = -1
+        info = {
+            "final_url": getattr(page, "url", ""),
+            "f7nice_matches": f7,
+            "star_review_labels": labels[:50],
+        }
+        with open(path + ".json", "w", encoding="utf-8") as f:
+            json.dump(info, f, indent=2, ensure_ascii=False)
+        with open(path + ".html", "w", encoding="utf-8") as f:
+            f.write(page_html(page))
+        log(f"debug dumped -> {path}.json / {path}.html "
+            f"(f7nice={f7}, star/review labels={len(labels)})")
+    except Exception as e:
+        log(f"debug dump failed: {e!r}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="data/reviews.json", help="output JSON path")
@@ -235,6 +274,8 @@ def main():
                 log("Google served a consent/CAPTCHA wall — keeping last-good number.")
             else:
                 rating, count = parse_rating_count(page)
+            if os.environ.get("REVIEWS_DEBUG"):
+                dump_debug(page, os.environ["REVIEWS_DEBUG"])
     except Exception as e:
         log(f"scrape error ({e!r}) — keeping last-good number.")
 
