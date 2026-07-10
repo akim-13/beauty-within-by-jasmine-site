@@ -1,0 +1,11 @@
+# Netlify config — standalone "Beauty Within by Jasmine" site.
+# This is the same Next.js source that the Vercel preview-aggregator serves under
+# mironovwebdesign.com/beauty-within-by-j/. Here it is a standalone static export
+# served at the domain ROOT, so the aggregator subpath is switched off via
+# NEXT_PUBLIC_BASE_PATH="" (read by next.config.mjs + image-loader.js).
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NEXT_PUBLIC_BASE_PATH = ""
