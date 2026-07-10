@@ -42,10 +42,15 @@ except ImportError:
 
 DEFAULT_QUERY = "Beauty Within by Jasmine, Crowthorne, Berkshire"
 
-# "5.0 stars 26 Reviews" (feed card) OR a lone "5.0 stars" / "26 reviews" (place header).
-RATING_AND_COUNT = re.compile(r"([0-5][.,]\d)\s*stars?\s*([\d,]+)\s*review", re.I)
-RATING_ONLY = re.compile(r"([0-5][.,]\d)\s*stars?", re.I)
-COUNT_ONLY = re.compile(r"([\d,]+)\s*reviews?", re.I)
+# A Google Maps place page shows the SUBJECT business's rating/count in a `.F7nice`
+# header ("5.0 stars" + "27 reviews", as two separate labels) and again as a review
+# histogram ("5 stars, 27 reviews" x5). The page ALSO contains OTHER businesses
+# ("people also search for" cards) with their own "X stars Y reviews" labels — so we
+# must anchor on the header/histogram and never scan the whole page for a loose match.
+RATING_AND_COUNT = re.compile(r"([0-5][.,]\d)\s*stars?\s*([\d,]+)\s*review", re.I)  # feed card
+RATING_ONLY = re.compile(r"([0-5][.,]\d)\s*stars?\b", re.I)
+COUNT_ONLY = re.compile(r"([\d,]+)\s*reviews?\b", re.I)
+HISTOGRAM_ROW = re.compile(r"\b([1-5])\s*stars?,\s*([\d,]+)\s*reviews?", re.I)  # "5 stars, 27 reviews"
 
 
 def log(msg):
@@ -91,11 +96,13 @@ def looks_blocked(page):
     return "/sorry/" in u or "consent.google" in u
 
 
-def aria_labels(page):
-    """Every aria-label on the page (that's where Maps renders 'X stars Y reviews')."""
+def labels_in(node):
+    """aria-label values on `node` and its descendants (Maps renders the rating
+    text into aria-labels). Scope matters: passing the header container keeps us
+    off the OTHER businesses listed elsewhere on the page."""
     out = []
     try:
-        for el in page.css("[aria-label]"):
+        for el in node.css("[aria-label]"):
             v = el.attrib.get("aria-label")
             if v:
                 out.append(v)
@@ -104,53 +111,81 @@ def aria_labels(page):
     return out
 
 
-def raw_html(page):
-    for attr in ("html_content", "body"):
-        try:
-            v = getattr(page, attr)
-            if isinstance(v, str) and v:
-                return v
-        except Exception:
-            pass
-    try:
-        return str(page)
-    except Exception:
-        return ""
+def from_header(page):
+    """The subject business's own rating widget lives in a single `.F7nice`
+    container, as two separate labels ('5.0 stars' + '27 reviews'). Scoped to
+    that container, so neighbouring listings can't leak in."""
+    for container in page.css(".F7nice"):
+        rating = count = None
+        for lbl in labels_in(container):
+            if rating is None:
+                m = RATING_ONLY.search(lbl)
+                if m:
+                    rating = m.group(1).replace(",", ".")
+            if count is None:
+                m = COUNT_ONLY.search(lbl)
+                if m:
+                    count = int(m.group(1).replace(",", ""))
+        if rating and count:
+            return rating, count
+    return None, None
+
+
+def from_histogram(page):
+    """Independent read: sum the review-distribution rows ('5 stars, 27 reviews',
+    '4 stars, 0 reviews', ...). Total = sum of counts; rating = weighted mean.
+    These rows belong to the subject business only, so this is a strong cross-check
+    on the header read."""
+    total = weight = rows = 0
+    for lbl in labels_in(page):
+        m = HISTOGRAM_ROW.search(lbl)
+        if m:
+            star = int(m.group(1))
+            n = int(m.group(2).replace(",", ""))
+            total += n
+            weight += star * n
+            rows += 1
+            if rows >= 5:
+                break
+    if rows >= 1 and total > 0:
+        return f"{weight / total:.1f}", total
+    return None, None
+
+
+def from_feed_card(page):
+    """Fallback for when a search returns a results FEED instead of resolving to
+    the place: read the first card's own combined 'X stars Y reviews' label,
+    scoped to that card so it stays anchored to the top result."""
+    for card in page.css("a.hfpxzc"):
+        parent = card.parent
+        if parent is None:
+            continue
+        for lbl in labels_in(parent):
+            m = RATING_AND_COUNT.search(lbl)
+            if m:
+                return m.group(1).replace(",", "."), int(m.group(2).replace(",", ""))
+    return None, None
 
 
 def parse_rating_count(page):
-    """Return (rating_str, count_int) or (None, None). Tries, in order:
-    a combined 'X stars Y reviews' label, then separate star/review labels, then
-    a regex over the raw HTML as a last resort."""
-    labels = aria_labels(page)
+    """Return (rating_str, count_int) or (None, None), read ONLY from elements that
+    belong to the subject business — never a loose whole-page scan (that once
+    grabbed a neighbouring salon's numbers). The header is primary; the histogram
+    is an independent cross-check that must agree on the count if present."""
+    h_rating, h_count = from_header(page)
+    g_rating, g_count = from_histogram(page)
 
-    # 1) combined label — most reliable (feed cards use this).
-    for lbl in labels:
-        m = RATING_AND_COUNT.search(lbl)
-        if m:
-            return m.group(1).replace(",", "."), int(m.group(2).replace(",", ""))
+    if h_rating and h_count:
+        if g_count is not None and g_count != h_count:
+            log(f"header ({h_rating}/{h_count}) and histogram ({g_rating}/{g_count}) "
+                f"disagree — refusing to publish an ambiguous read.")
+            return None, None
+        return h_rating, h_count
 
-    # 2) separate labels — place-header layout ("5.0 stars" + "26 reviews").
-    rating = count = None
-    for lbl in labels:
-        if rating is None:
-            r = RATING_ONLY.search(lbl)
-            if r:
-                rating = r.group(1).replace(",", ".")
-        if count is None:
-            c = COUNT_ONLY.search(lbl)
-            if c:
-                count = int(c.group(1).replace(",", ""))
-    if rating and count:
-        return rating, count
+    if g_rating and g_count:
+        return g_rating, g_count
 
-    # 3) last resort: scan the serialized HTML.
-    html = raw_html(page)
-    m = RATING_AND_COUNT.search(html)
-    if m:
-        return m.group(1).replace(",", "."), int(m.group(2).replace(",", ""))
-
-    return None, None
+    return from_feed_card(page)
 
 
 def sane(rating, count, prev):
