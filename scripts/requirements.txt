@@ -1,0 +1,9 @@
+# Deps for refresh-reviews.py (single-business Google review scraper).
+# Same stealth stack as the agency's bulk Google Maps scraper. Install once:
+#   python3 -m pip install -r scripts/requirements.txt
+#   python3 -m camoufox fetch        # downloads Camoufox (the stealth browser, ~700MB)
+# StealthySession uses Camoufox, so `camoufox fetch` is required; no separate
+# `playwright install` is needed for this single script.
+# Tested against scrapling 0.4.9.
+scrapling[fetchers]>=0.4
+camoufox
