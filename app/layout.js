@@ -17,16 +17,17 @@ const inter = Inter({
 });
 
 export const metadata = {
-  // Keyword map (seo/keyword-map.md): brand-first umbrella — offering incl. the
-  // flagship training + geo. Per-page titles carry the transactional terms.
-  title: 'Beauty Within by Jasmine | Luxury Semi-Permanent Makeup & PMU Training | Crowthorne, Berkshire',
+  // Keyword map (seo/keyword-map.md): brand-first umbrella — training leads (the
+  // commercial priority) ahead of treatments + geo. Per-page titles carry the
+  // transactional terms.
+  title: 'Beauty Within by Jasmine | PMU Training Academy & Luxury Semi-Permanent Makeup | Crowthorne, Berkshire',
   description:
-    'Luxury semi-permanent makeup tailored to you. Microblading, lip blush, combination brows and lash treatments by Jasmine Crean, with over 15 years of experience. Accredited 1:1 PMU training in Crowthorne, Berkshire.',
+    "ABT-accredited 1:1 microblading and PMU training in Crowthorne, Berkshire, from Jasmine Crean — 15+ years' experience. Plus luxury semi-permanent makeup treatments.",
   metadataBase: new URL('https://www.beautywithinbyj.com'),
   alternates: { canonical: '/' },
   openGraph: {
     title: 'Beauty Within by Jasmine',
-    description: 'Luxury semi-permanent makeup tailored to you. Crowthorne, Berkshire.',
+    description: '1:1 PMU training & luxury semi-permanent makeup. Crowthorne, Berkshire.',
     type: 'website',
     url: '/',
     siteName: 'Beauty Within by Jasmine',
