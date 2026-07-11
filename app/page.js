@@ -8,7 +8,7 @@ import {
   ArrowRight, Phone, Mail, MapPin, Star, Check, Sparkle, Award, GradCap, Instagram,
 } from '@/components/icons';
 // Google rating + review count — single source of truth.
-// Auto-updated by scripts/update-reviews.js (do not hand-edit if automation is on).
+// Auto-updated by scripts/refresh-reviews.py (do not hand-edit if automation is on).
 import reviews from '@/data/reviews.json';
 
 const INSTAGRAM_URL = 'https://www.instagram.com/beautywithinbyjasmine/';
@@ -60,10 +60,31 @@ const STATS = [
   { n: '1:1', l: 'Personal service' },
 ];
 
+// Primary BeautySalon entity — shared @id with /treatments/ so Google merges them.
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BeautySalon',
+  '@id': 'https://www.beautywithinbyj.com/#business',
+  url: 'https://www.beautywithinbyj.com/',
+  name: 'Beauty Within by Jasmine',
+  description:
+    'Luxury semi-permanent makeup tailored to you. Microblading, lip blush, combination brows and lash treatments by Jasmine Crean, with over 15 years of experience. Accredited 1:1 PMU training in Crowthorne, Berkshire.',
+  image: 'https://www.beautywithinbyj.com/images/featured-5495.webp',
+  telephone: '+447501838484',
+  email: 'jasmine.crean@mail.com',
+  founder: { '@type': 'Person', name: 'Jasmine Crean' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Crowthorne', addressRegion: 'Berkshire', addressCountry: 'GB' },
+  areaServed: ['Crowthorne', 'Sandhurst', 'Bracknell', 'Wokingham', 'Camberley', 'Berkshire'],
+  sameAs: [INSTAGRAM_URL, 'https://www.facebook.com/beautywithinbyjasmine'],
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: reviews.rating, reviewCount: String(reviews.count) },
+};
+
 export default function Home() {
   return (
     <main id="top">
       <Nav />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
 
       {/* ---------------- HERO ---------------- */}
       <section className="hero">

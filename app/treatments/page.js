@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Nav from '@/components/Nav';
 import Reveal from '@/components/Reveal';
 import { ArrowRight, Check } from '@/components/icons';
+// Google rating + review count — single source of truth.
+// Auto-updated by scripts/refresh-reviews.py (do not hand-edit if automation is on).
+import reviews from '@/data/reviews.json';
 
 /*
   ===========================================================================
@@ -17,10 +20,13 @@ export const metadata = {
   title: 'Microblading, Lip Blush & Brow Treatments in Crowthorne, Berkshire | Beauty Within by Jasmine',
   description:
     'Natural, confidence-enhancing semi-permanent makeup in Crowthorne, Berkshire. Microblading, combination brows, lip blush and lash treatments by Jasmine Crean, tailored to you. Book a consultation.',
+  alternates: { canonical: '/treatments/' },
   openGraph: {
     title: 'Semi-Permanent Makeup Treatments | Crowthorne, Berkshire',
     description: 'Microblading, lip blush, combination brows and lash treatments, tailored to you.',
     type: 'website',
+    url: '/treatments/',
+    images: ['/images/featured-5495.webp'],
   },
 };
 
@@ -73,12 +79,14 @@ const FAQ = [
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'BeautySalon',
+  '@id': 'https://www.beautywithinbyj.com/#business',
+  url: 'https://www.beautywithinbyj.com/treatments/',
   name: 'Beauty Within by Jasmine',
   description: 'Semi-permanent makeup and microblading in Crowthorne, Berkshire.',
   telephone: '+447501838484',
   areaServed: 'Crowthorne, Berkshire',
   address: { '@type': 'PostalAddress', addressLocality: 'Crowthorne', addressRegion: 'Berkshire', addressCountry: 'GB' },
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '26' },
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: reviews.rating, reviewCount: String(reviews.count) },
   makesOffer: SERVICES.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.title } })),
 };
 
@@ -117,6 +125,9 @@ export default function Treatments() {
       {/* ---------------- SERVICES ---------------- */}
       <section className="section" id="treatments">
         <div className="container">
+          {/* Visually-hidden section heading so the outline reads h1 -> h2 -> h3
+              (the service cards below are h3). No visible change. */}
+          <h2 className="sr-only">Our semi-permanent makeup treatments</h2>
           <div className="services-grid">
             {SERVICES.map((s, i) => (
               <Reveal className="service-card" key={s.title} delay={(i % 2) * 0.08}>

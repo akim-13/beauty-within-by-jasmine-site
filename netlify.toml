@@ -9,3 +9,29 @@
 
 [build.environment]
   NEXT_PUBLIC_BASE_PATH = ""
+  # Route next/image srcSet through Netlify's Image CDN so width descriptors
+  # actually resize/optimize (see image-loader.js). Only set on Netlify — local
+  # dev / Vercel previews leave it unset and keep the plain-path loader.
+  NEXT_PUBLIC_IMAGE_CDN = "netlify"
+
+# --- Caching ---------------------------------------------------------------
+# Photos are add-a-new-file (never overwritten in place), so they can be cached
+# hard-and-forever. Fixes the audit finding that /images/* shipped with
+# max-age=0,must-revalidate (~4.9 MB revalidated on every visit).
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# --- Security headers -------------------------------------------------------
+# Baseline hardening for every response (HSTS is already sent by Netlify).
+# No Content-Security-Policy for now: inline scripts, gtag, the Cal.com embed
+# and the Google Maps iframe make a correct CSP high-breakage / low-value at
+# this stage — deliberately deferred.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

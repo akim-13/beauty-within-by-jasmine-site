@@ -29,6 +29,7 @@ export default function ContactForm() {
       });
       if (!res.ok) throw new Error(`Bad status ${res.status}`);
       setStatus('sent');
+      if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { method: 'enquiry_form' });
     } catch (err) {
       setStatus('error');
     }

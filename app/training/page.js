@@ -17,13 +17,19 @@ import { ArrowRight, Award, Check, GradCap, Clock, Heart } from '@/components/ic
 */
 
 export const metadata = {
-  title: 'Microblading Course | 1:1 ABT-Accredited PMU Training in Berkshire | Beauty Within by Jasmine',
+  // Keyword map (seo/keyword-map.md): "microblading course Berkshire" is the
+  // under-served head term — geo lives in the first title segment; "beginner"
+  // and "3-day" match the searcher format-phrases.
+  title: 'Microblading Course in Berkshire | 1:1 ABT-Accredited Beginner Training | Beauty Within by Jasmine',
   description:
-    'Train to become a microblading artist with Jasmine Crean. A fully ABT-accredited 1:1 microblading course in Crowthorne, Berkshire — no experience required, full professional kit, live model, insurable certificate and flexible finance. Enquire today.',
+    'Train to become a microblading artist with Jasmine Crean. A fully ABT-accredited, one-to-one 3-day beginner microblading course in Crowthorne, Berkshire — no experience required, full professional kit, live model, insurable certificate and flexible finance. Enquire today.',
+  alternates: { canonical: '/training/' },
   openGraph: {
     title: 'Become a Microblading Artist | 1:1 Accredited Training',
     description: 'Accredited 1:1 microblading training in Berkshire with Jasmine Crean. Enquire for full course details.',
     type: 'website',
+    url: '/training/',
+    images: ['/images/training-kit.webp'],
   },
 };
 
@@ -89,12 +95,15 @@ const FAQ = [
 const courseSchema = {
   '@context': 'https://schema.org',
   '@type': 'Course',
+  url: 'https://www.beautywithinbyj.com/training/',
   name: '3-Day Beginner Microblading Course',
   description:
     'A fully ABT-accredited, one-to-one beginner microblading course in Crowthorne, Berkshire. No experience required. Includes a full professional kit, live model experience, 8–10 case studies and an insurable certificate.',
   provider: {
     '@type': 'Organization',
+    '@id': 'https://www.beautywithinbyj.com/#business',
     name: 'Beauty Within by Jasmine',
+    url: 'https://www.beautywithinbyj.com/',
     areaServed: 'GB',
   },
   educationalCredentialAwarded: 'ABT-accredited, insurable certificate',
