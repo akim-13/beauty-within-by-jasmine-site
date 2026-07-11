@@ -85,7 +85,15 @@ const localBusinessSchema = {
   description: 'Semi-permanent makeup and microblading in Crowthorne, Berkshire.',
   telephone: '+447501838484',
   areaServed: 'Crowthorne, Berkshire',
-  address: { '@type': 'PostalAddress', addressLocality: 'Crowthorne', addressRegion: 'Berkshire', addressCountry: 'GB' },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: "58 Duke's Ride",
+    addressLocality: 'Crowthorne',
+    addressRegion: 'Berkshire',
+    postalCode: 'RG45 6NY',
+    addressCountry: 'GB',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 51.3704133, longitude: -0.7997879 },
   aggregateRating: { '@type': 'AggregateRating', ratingValue: reviews.rating, reviewCount: String(reviews.count) },
   makesOffer: SERVICES.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.title } })),
 };
