@@ -157,11 +157,6 @@ export default function Home() {
                   width={1290} height={1133} sizes="(max-width: 1024px) 90vw, 45vw"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
-              <div className="img-frame small">
-                <Image src="/images/portfolio-before.webp" alt="Soft, natural brow enhancement result"
-                  width={1200} height={1180} sizes="22vw"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
             </Reveal>
             <div className="intro-body">
               <Reveal as="div"><span className="eyebrow">The Beauty Within ethos</span></Reveal>

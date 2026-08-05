@@ -92,11 +92,11 @@ export default function ContactForm() {
           {status === 'sending' ? 'Sending…' : <>Send Enquiry <ArrowRight /></>}
         </button>
         {status === 'error' && (
-          <p className="form-note" role="alert" style={{ color: 'var(--rose-deep)' }}>
-            Something went wrong sending your enquiry. Please try again, or call/message <a href="tel:07501838484" style={{ color: 'var(--rose-deep)' }}>07501 838484</a>.
+          <p className="form-note" role="alert" style={{ color: 'var(--gold)' }}>
+            Something went wrong sending your enquiry. Please try again, or call/message <a href="tel:07501838484" style={{ color: 'var(--gold)' }}>07501 838484</a>.
           </p>
         )}
-        <p className="form-note">Prefer to talk? Call or message <a href="tel:07501838484" style={{ color: 'var(--rose-deep)' }}>07501 838484</a>. Treatment pricing is available on enquiry.</p>
+        <p className="form-note">Prefer to talk? Call or message <a href="tel:07501838484" style={{ color: 'var(--gold)' }}>07501 838484</a>. Treatment pricing is available on enquiry.</p>
       </form>
     </div>
   );

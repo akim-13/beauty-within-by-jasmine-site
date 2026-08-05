@@ -35,7 +35,7 @@ export default function CalEmbed() {
     Cal('ui', {
       hideEventTypeDetails: false,
       layout: 'month_view',
-      cssVarsPerTheme: { light: { 'cal-brand': '#9c6f67' } },
+      cssVarsPerTheme: { light: { 'cal-brand': '#a98850' } },
     });
   }, []);
 
