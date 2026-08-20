@@ -22,7 +22,7 @@ export const metadata = {
   // and "3-day" match the searcher format-phrases.
   title: 'Microblading Course in Berkshire | 1:1 ABT-Accredited Beginner Training | Beauty Within by Jasmine',
   description:
-    'Train to become a microblading artist with Jasmine Crean. A fully ABT-accredited, one-to-one 3-day beginner microblading course in Crowthorne, Berkshire — no experience required, full professional kit, live model, insurable certificate and flexible finance. Enquire today.',
+    'Train to become a microblading artist with Jasmine Crean. A fully ABT-accredited, one-to-one 3-day beginner microblading course in Crowthorne, Berkshire — no experience required, full professional kit, live model, insurable certificate and flexible finance. Advanced 1:1 masterclass also available for qualified artists. Enquire today.',
   alternates: { canonical: '/training/' },
   openGraph: {
     title: 'Become a Microblading Artist | 1:1 Accredited Training',
@@ -79,6 +79,14 @@ const STAGES = [
   { n: '06', t: 'Business building & certification', d: 'You learn how to launch and grow your business, including social media, then complete 8–10 case studies with Jasmine’s ongoing support — earning your ABT-accredited, insurable certificate.' },
 ];
 
+// Masterclass for already-qualified artists — copy sourced from Jasmine's flyer
+// (2026-08-20). No price shown, same inquiry-first rule as the course.
+const MASTERCLASS_INCLUDES = [
+  '1:1 Full-Day Masterclass', 'Perfect Natural Hair Strokes',
+  'Improve Healed Retention & Technique', 'Brow Mapping & Pigment Implantation',
+  'Confidence with Difficult Skin Types', 'Personalised Mentoring & Honest Feedback',
+];
+
 const FAQ = [
   { q: 'Do I need any experience?', a: 'No. The 3-Day Beginner Microblading Course is designed for complete beginners and takes you from the foundations through to working on a live model.' },
   { q: 'Is the course accredited?', a: 'Yes — it is fully ABT accredited, and you receive an insurable certificate on completion, so you can get insured and start taking clients.' },
@@ -90,6 +98,7 @@ const FAQ = [
   { q: 'What happens after the three days?', a: 'You complete 8–10 case studies with Jasmine’s ongoing support before certification, and her guidance continues well beyond that.' },
   { q: 'Where is the training held?', a: 'At Jasmine’s studio in Crowthorne, Berkshire.' },
   { q: 'How many people are on each course?', a: 'Just you. All training is genuinely one-to-one.' },
+  { q: 'I’m already a qualified artist — is there training for me?', a: 'Yes. Alongside the beginner course, Jasmine offers a 1:1 Advanced Microblading Masterclass — a fully personalised training day for already-qualified artists, tailored to your technique and goals, from finer hair strokes and brow mapping to pigment implantation and difficult skin types. Enquire for full details.' },
 ];
 
 const courseSchema = {
@@ -114,6 +123,29 @@ const courseSchema = {
   },
 };
 
+const masterclassSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  url: 'https://www.beautywithinbyj.com/training/#masterclass',
+  name: '1:1 Advanced Microblading Masterclass',
+  description:
+    'A fully personalised one-to-one training day for already-qualified microblading artists in Crowthorne, Berkshire. Tailored to your technique and goals — finer hair strokes, brow mapping, pigment implantation, healed retention and confidence with difficult skin types.',
+  provider: {
+    '@type': 'Organization',
+    '@id': 'https://www.beautywithinbyj.com/#business',
+    name: 'Beauty Within by Jasmine',
+    url: 'https://www.beautywithinbyj.com/',
+    areaServed: 'GB',
+  },
+  educationalLevel: 'Advanced',
+  audience: { '@type': 'Audience', audienceType: 'Qualified microblading artists' },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Onsite',
+    location: { '@type': 'Place', name: 'Crowthorne, Berkshire, UK' },
+  },
+};
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -131,6 +163,7 @@ export default function Training() {
 
       {/* JSON-LD: Course + FAQ for rich results */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(masterclassSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ---------------- HERO ---------------- */}
@@ -327,6 +360,45 @@ export default function Training() {
                 <Link className="btn btn-gold" href="/#contact">Ask About Finance &amp; Dates <ArrowRight /></Link>
               </Reveal>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- ADVANCED MASTERCLASS (qualified artists) ---------------- */}
+      <section className="section" id="masterclass">
+        <div className="container">
+          <div className="section-head center">
+            <Reveal as="div"><span className="eyebrow center">For qualified artists</span></Reveal>
+            <Reveal as="h2" className="section-title" delay={0.06}>
+              Already qualified? <em>Elevate your results.</em>
+            </Reveal>
+          </div>
+          <div className="training-grid masterclass-grid">
+            <Reveal className="course-card">
+              <span className="badge"><Award style={{ width: 14, height: 14 }} /> 1:1 Advanced Training</span>
+              <h3>1:1 Advanced Microblading Masterclass</h3>
+              <p>
+                A fully personalised training day designed around your technique and focused on your
+                growth. Whether you want to create finer hair strokes, perfect your brow mapping,
+                improve pigment implantation or gain more confidence with difficult skin types, you
+                spend the day refining your work with Jasmine&rsquo;s one-to-one guidance, honest
+                feedback and hands-on support.
+              </p>
+              <ul className="includes">
+                {MASTERCLASS_INCLUDES.map((item) => (
+                  <li key={item}><Check /> {item}</li>
+                ))}
+              </ul>
+              <Link className="btn btn-gold" href="/#contact">Enquire About the Masterclass <ArrowRight /></Link>
+            </Reveal>
+            <Reveal className="masterclass-media" delay={0.1}>
+              <div className="img-frame">
+                <Image src="/images/masterclass-flyer.webp"
+                  alt="1:1 Advanced Microblading Masterclass — a personalised training day for qualified artists, designed around your technique and focused on your growth"
+                  width={1400} height={1400} sizes="(max-width: 1024px) 100vw, 55vw"
+                  style={{ width: '100%', height: 'auto', display: 'block' }} />
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
