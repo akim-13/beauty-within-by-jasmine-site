@@ -36,7 +36,7 @@ const GALLERY = [
   { img: '/images/portfolio-use4.webp', cat: 'Microblading · Before', cls: 'tall' },
   { img: '/images/portfolio-micro2.webp', cat: 'Microblading · After', cls: 'tall' },
   { img: '/images/lip-blush-new.webp', cat: 'Lip Blush', cls: '' },
-  { img: '/images/lash-new.webp', cat: 'Lash Lift', cls: '' },
+  { img: '/images/lash-lift-before-after.webp', cat: 'Lash Lift · Before & After', cls: '' },
   { img: '/images/treatment-tati.webp', cat: 'Client Result', cls: '' },
   { img: '/images/portfolio-use.webp', cat: 'Brows', cls: '' },
 ];
@@ -153,8 +153,8 @@ export default function Home() {
           <div className="intro-grid">
             <Reveal className="intro-figure">
               <div className="img-frame">
-                <Image src="/images/featured-5495.webp" alt="Natural microbladed brows — a Beauty Within client result"
-                  width={1290} height={1133} sizes="(max-width: 1024px) 90vw, 45vw"
+                <Image src="/images/client-brows-result.webp" alt="Natural microbladed brows — a Beauty Within client result"
+                  width={1100} height={1924} sizes="(max-width: 1024px) 90vw, 45vw"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </Reveal>
@@ -224,8 +224,8 @@ export default function Home() {
             </Reveal>
             <Reveal className="training-media" delay={0.1}>
               <div className="img-frame">
-                <Image src="/images/training-paty.webp" alt="One-to-one microblading training session"
-                  width={700} height={933} sizes="30vw"
+                <Image src="/images/training-session.webp" alt="Jasmine training a student one-to-one in the Beauty Within studio"
+                  width={1100} height={1467} sizes="30vw"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className="img-frame">

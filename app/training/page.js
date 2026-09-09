@@ -289,8 +289,8 @@ export default function Training() {
             </Reveal>
             <Reveal className="training-media" delay={0.1}>
               <div className="img-frame">
-                <Image src="/images/training-paty.webp" alt="One-to-one microblading training session"
-                  width={700} height={933} sizes="30vw"
+                <Image src="/images/training-session.webp" alt="Jasmine training a student one-to-one in the Beauty Within studio"
+                  width={1100} height={1467} sizes="30vw"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div className="img-frame">

@@ -57,7 +57,7 @@ const GALLERY = [
   { img: '/images/portfolio-use4.webp', cat: 'Microblading · Before', cls: 'tall' },
   { img: '/images/portfolio-micro2.webp', cat: 'Microblading · After', cls: 'tall' },
   { img: '/images/lip-blush-new.webp', cat: 'Lip Blush', cls: '' },
-  { img: '/images/lash-new.webp', cat: 'Lash Lift', cls: '' },
+  { img: '/images/lash-lift-before-after.webp', cat: 'Lash Lift · Before & After', cls: '' },
   { img: '/images/treatment-tati.webp', cat: 'Client Result', cls: '' },
   { img: '/images/portfolio-use.webp', cat: 'Brows', cls: '' },
 ];
