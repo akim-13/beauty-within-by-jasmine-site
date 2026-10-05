@@ -41,15 +41,50 @@ const GALLERY = [
   { img: '/images/portfolio-use.webp', cat: 'Brows', cls: '' },
 ];
 
+// Review sources: 'google' = Google Business Profile (anonymous quotes); 'client' = verified
+// post-treatment reviews collected by Jasmine's booking/consultation app (names shortened to
+// first name + initial). Client-app reviews are NOT part of the Google count or the schema.
 const REVIEWS = [
   {
+    source: 'client',
+    featured: true,
+    name: 'Samantha S.',
+    treatment: 'Combination brows · 6-week top-up',
+    date: 'July 2026',
+    text: 'I couldn’t be happier with my combination brows by Jasmine! She has done the most amazing job, and they are honestly the best they’ve ever looked. From the moment I arrived, she made me feel completely comfortable and took the time to understand exactly the look I wanted. Jasmine’s attention to detail and skill are incredible, and the results have exceeded all of my expectations. She is so professional, friendly, and clearly passionate about what she does. I receive so many compliments on my brows, and I wouldn’t trust anyone else. I highly recommend Jasmine to anyone considering combination brows – you won’t be disappointed!',
+  },
+  {
+    source: 'google',
     text: 'I have been a client of Jasmine’s for around 8 years now and am always so impressed. I would not go to anyone else for microblading or lip blush — she always listens to exactly what I want and the results are always perfect. Lashes are always brilliant too. Highly recommend.',
   },
   {
+    source: 'client',
+    name: 'Sue M.',
+    treatment: 'Microblading · 6–12 month colour boost',
+    date: 'August 2026',
+    text: 'I wish I had taken the plunge and got my brows done years ago. I feel so much more confident. Jasmine is amazing and talks you through the whole process – wouldn’t go anywhere else. Thank you so much Jasmine x',
+  },
+  {
+    source: 'google',
     text: 'I can’t recommend Jasmine enough. I’ve been having my eyebrows microbladed by her for years and I’m absolutely delighted with them. She is so professional, warm and friendly, making you feel very comfortable. Her attention to detail is amazing.',
   },
   {
+    source: 'client',
+    name: 'Fiona H.',
+    treatment: 'Microblading · 6-week top-up',
+    date: 'June 2026',
+    text: 'I recently had microblading followed by a six week top-up with Jasmine at Beauty Within. The experience was a great one and her attention to detail and artistry has transformed my brows. The atmosphere was warm and inviting, making me feel relaxed throughout. I highly recommend Jasmine for anyone seeking a flawless, natural look! Thank you Jasmine x',
+  },
+  {
+    source: 'google',
     text: 'Highly recommend Jasmine for microblading. So professional and made me feel totally at ease throughout. I love my new brows!',
+  },
+  {
+    source: 'client',
+    name: 'Sandra C.',
+    treatment: 'Microblading · 6-week top-up',
+    date: 'May 2026',
+    text: 'Had my top up after 6 weeks and my brows are amazing, thank you Jasmine.',
   },
 ];
 
@@ -363,13 +398,21 @@ export default function Home() {
           </div>
           <div className="reviews-grid">
             {REVIEWS.map((r, i) => (
-              <Reveal className="review-card" key={i} delay={i * 0.08}>
+              <Reveal className={`review-card${r.featured ? ' review-card--featured' : ''}`} key={i} delay={i * 0.08}>
                 <Stars />
                 <p className="quote">&ldquo;{r.text}&rdquo;</p>
-                <div className="who"><Star style={{ width: 14, height: 14, color: 'var(--gold)' }} /> Verified Google review</div>
+                {r.source === 'google' ? (
+                  <div className="who"><Star style={{ width: 14, height: 14, color: 'var(--gold)' }} /> Verified Google review</div>
+                ) : (
+                  <div className="who who--client">
+                    <span className="who-name"><Star style={{ width: 14, height: 14, color: 'var(--gold)' }} /> {r.name}</span>
+                    <span className="who-meta">{r.treatment} · {r.date}</span>
+                  </div>
+                )}
               </Reveal>
             ))}
           </div>
+          <p className="reviews-note">Named reviews are verified client reviews collected after treatment through our booking app. Google reviews are shown anonymously.</p>
         </div>
       </section>
 
