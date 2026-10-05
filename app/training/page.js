@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Nav from '@/components/Nav';
-import Reveal from '@/components/Reveal';
-import { ArrowRight, Award, Check, GradCap, Clock, Heart } from '@/components/icons';
+import Reveal, { Stars, Quote } from '@/components/Reveal';
+import { ArrowRight, Award, Check, GradCap, Clock, Heart, Star } from '@/components/icons';
 
 /*
   ===========================================================================
@@ -86,6 +86,17 @@ const MASTERCLASS_INCLUDES = [
   'Improve Healed Retention & Technique', 'Brow Mapping & Pigment Implantation',
   'Confidence with Difficult Skin Types', 'Personalised Mentoring & Honest Feedback',
 ];
+
+// Google review #31 (Sept 2026) by a masterclass student — the first training testimonial.
+// It is a masterclass (qualified-artist) review, so it sits in the masterclass section only.
+const MASTERCLASS_REVIEW = {
+  name: 'Karen M.',
+  meta: '1:1 Advanced Microblading Masterclass · September 2026',
+  text: 'I recently completed a one-to-one masterclass in Microblading with Jasmin, and honestly, it was such an amazing experience. I learned so much and **gained so much more confidence in my technique**. Jasmin is so friendly, supportive and patient. I can not wait to put everything into practice. I would highly recommend this masterclass to anyone looking to improve their microblading skills or **take their work to the next level**. Thank you so much for such an amazing day!',
+};
+
+const GMAPS_LINK =
+  'https://www.google.com/maps/search/?api=1&query=Beauty+Within+by+Jasmine+Crowthorne+Berkshire';
 
 const FAQ = [
   { q: 'Do I need any experience?', a: 'No. The 3-Day Beginner Microblading Course is designed for complete beginners and takes you from the foundations through to working on a live model.' },
@@ -400,6 +411,15 @@ export default function Training() {
               </div>
             </Reveal>
           </div>
+          <Reveal className="review-card review-card--featured masterclass-review" delay={0.1}>
+            <span className="eyebrow">From a masterclass student</span>
+            <Stars />
+            <Quote text={MASTERCLASS_REVIEW.text} />
+            <div className="who who--client">
+              <span className="who-name"><Star style={{ width: 14, height: 14, color: 'var(--gold)' }} /> {MASTERCLASS_REVIEW.name}</span>
+              <span className="who-meta">{MASTERCLASS_REVIEW.meta} · <a href={GMAPS_LINK} target="_blank" rel="noopener noreferrer">Verified Google review</a></span>
+            </div>
+          </Reveal>
         </div>
       </section>
 

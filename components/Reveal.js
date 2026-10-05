@@ -28,3 +28,13 @@ export function Stars({ n = 5, className = '' }) {
     </span>
   );
 }
+
+// Renders a review string, turning **marked** spans into <strong> highlights.
+export function Quote({ text, className = 'quote' }) {
+  const parts = text.split('**');
+  return (
+    <p className={className}>
+      &ldquo;{parts.map((s, i) => (i % 2 ? <strong key={i}>{s}</strong> : s))}&rdquo;
+    </p>
+  );
+}

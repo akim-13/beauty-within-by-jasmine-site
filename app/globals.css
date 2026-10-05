@@ -419,6 +419,11 @@ img { display: block; max-width: 100%; }
 .review-card .who-name { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 500; letter-spacing: 0; }
 .review-card .who-meta { font-size: 12.5px; letter-spacing: 0.02em; }
 .reviews-note { margin-top: 22px; font-size: 12.5px; color: var(--muted); font-style: italic; }
+.review-card .quote strong { font-weight: 600; color: var(--ink); }
+.masterclass-review { margin-top: 40px; }
+.masterclass-review .eyebrow { display: flex; margin-bottom: 18px; }
+.masterclass-review .who-meta a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.masterclass-review .who-meta a:hover { color: var(--ink); }
 
 /* ---------- Location / Contact ---------- */
 #contact { background: var(--ivory); }
