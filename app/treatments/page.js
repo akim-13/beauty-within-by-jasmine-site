@@ -17,12 +17,12 @@ import reviews from '@/data/reviews.json';
 */
 
 export const metadata = {
-  title: 'Microblading, Lip Blush & Brow Treatments in Crowthorne, Berkshire | Beauty Within by Jasmine',
+  title: 'Semi-Permanent Makeup in Crowthorne, Berkshire | Microblading, Lip Blush & Brows | Beauty Within by Jasmine',
   description:
-    'Natural, confidence-enhancing semi-permanent makeup in Crowthorne, Berkshire. Microblading, combination brows, lip blush and lash treatments by Jasmine Crean, tailored to you. Book a consultation.',
+    'Semi-permanent makeup in Crowthorne, Berkshire — microblading, combination brows, lip blush and lash lift & tint by Jasmine Crean, tailored to you. Easy to reach from Bracknell, Wokingham, Camberley and Sandhurst. Book a consultation.',
   alternates: { canonical: '/treatments/', types: { 'text/markdown': '/treatments/index.md' } },
   openGraph: {
-    title: 'Semi-Permanent Makeup Treatments | Crowthorne, Berkshire',
+    title: 'Semi-Permanent Makeup in Crowthorne, Berkshire',
     description: 'Microblading, lip blush, combination brows and lash treatments, tailored to you.',
     type: 'website',
     url: '/treatments/',
@@ -47,9 +47,9 @@ const SERVICES = [
     desc: 'Soft semi-permanent pigment that enhances the natural colour and shape of the lips, creating improved definition, balance and a fresh, healthy appearance with a subtle, natural finish.',
   },
   {
-    n: '04', title: 'Lash Treatments',
+    n: '04', title: 'Lash Lift & Tint',
     img: '/images/lash-new.webp', alt: 'Lash lift and tint result',
-    desc: 'Professionally applied lash treatments that add lift, definition and confidence — from subtle and natural to a more glamorous finish, always protecting the health of your natural lashes.',
+    desc: 'A lash lift and tint adds curl, definition and depth to your natural lashes without extensions — from subtle and natural to a more glamorous finish, always protecting the health of your lashes.',
   },
 ];
 
@@ -115,8 +115,10 @@ export default function Treatments() {
                 Semi-permanent makeup, <em>tailored to you</em>
               </Reveal>
               <Reveal as="p" className="lead" delay={0.12}>
-                Natural, confidence-enhancing microblading, lip blush, brows and lash treatments. Every
-                treatment begins with a personalised consultation for the most flattering result.
+                Natural, confidence-enhancing semi-permanent makeup (also called permanent makeup or
+                PMU) — microblading, lip blush, brows and lash lift &amp; tint. Every treatment begins
+                with a personalised consultation for the most flattering result, at the studio in
+                Crowthorne, Berkshire, easy to reach from Bracknell, Wokingham, Camberley and Sandhurst.
               </Reveal>
               <Reveal delay={0.18} style={{ marginTop: 28 }}>
                 <Link className="btn btn-dark" href="/#contact">Book a Consultation <ArrowRight /></Link>

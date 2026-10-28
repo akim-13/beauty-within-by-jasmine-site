@@ -28,7 +28,7 @@ const SERVICES = [
   { n: '01', title: 'Microblading', img: '/images/treatment-microblading.webp', alt: 'Microblading brow result', short: 'Natural, hair-stroke brows with soft, realistic definition.' },
   { n: '02', title: 'Combination Brows', img: '/images/combination-brows.webp', alt: 'Combination brows result', short: 'Microblading plus soft shading for added density.' },
   { n: '03', title: 'Lip Blush', img: '/images/lip-blush-new.webp', alt: 'Lip blush semi-permanent makeup result', short: 'Soft pigment for naturally fuller, defined lips.' },
-  { n: '04', title: 'Lash Treatments', img: '/images/lash-new.webp', alt: 'Lash lift and tint result', short: 'Lift, tint and definition for your natural lashes.' },
+  { n: '04', title: 'Lash Lift & Tint', img: '/images/lash-new.webp', alt: 'Lash lift and tint result', short: 'Lift, tint and definition for your natural lashes.' },
 ];
 
 // Top six for the homepage teaser — the full twelve are on /training/.
@@ -158,7 +158,7 @@ export default function Home() {
             Crowthorne, Berkshire.
           </Reveal>
           <Reveal className="hero-actions" delay={0.24}>
-            <Link className="btn btn-gold" href="/training/">Explore the Academy <ArrowRight /></Link>
+            <Link className="btn btn-gold" href="/training/">Explore the microblading course <ArrowRight /></Link>
             <Link className="btn btn-ghost" href="/treatments/">Book a Treatment</Link>
           </Reveal>
           <Reveal className="hero-rating" delay={0.32}>
@@ -223,7 +223,11 @@ export default function Home() {
                 It is a calm, welcoming space built on care, attention and the trust of clients and
                 students alike — many of whom return year after year.
               </Reveal>
-              <Reveal as="div" className="intro-sign" delay={0.24}>
+              <Reveal as="p" delay={0.24}>
+                Jasmine specialises in semi-permanent makeup and one-to-one microblading training only —
+                not nails, hair or waxing — so every appointment and every course gets her full attention.
+              </Reveal>
+              <Reveal as="div" className="intro-sign" delay={0.3}>
                 Jasmine Crean
                 <small>Founder · PMU Artist & Educator</small>
               </Reveal>
@@ -269,7 +273,7 @@ export default function Home() {
                 ))}
               </ul>
               <div className="hero-actions" style={{ marginTop: 4 }}>
-                <Link className="btn btn-gold" href="/training/">Explore the Academy <ArrowRight /></Link>
+                <Link className="btn btn-gold" href="/training/">Explore the microblading course <ArrowRight /></Link>
                 <a className="btn btn-ghost" href="#contact">Enquire</a>
               </div>
             </Reveal>
@@ -498,7 +502,7 @@ export default function Home() {
             </div>
             <div className="footer-col">
               <h4>Explore</h4>
-              <Link href="/training/">Training Academy</Link>
+              <Link href="/training/">Microblading Course &amp; Training</Link>
               <Link href="/treatments/">Treatments</Link>
               <Link href="/#portfolio">Portfolio</Link>
               <Link href="/#about">About Jasmine</Link>

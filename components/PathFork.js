@@ -17,8 +17,8 @@ const PATHS = [
     eyebrow: 'Train with me',
     title: 'Become a microblading artist',
     blurb:
-      'Accredited 1:1 PMU training with a full professional kit, live model and ongoing support. No experience required.',
-    cta: 'Explore the Academy',
+      'Accredited 1:1 microblading training with a full professional kit, live model and ongoing support. No experience required.',
+    cta: 'Explore the microblading course',
     lead: true,
   },
   {

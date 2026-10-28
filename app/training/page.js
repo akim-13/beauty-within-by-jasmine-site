@@ -20,13 +20,13 @@ export const metadata = {
   // Keyword map (seo/keyword-map.md): "microblading course Berkshire" is the
   // under-served head term — geo lives in the first title segment; "beginner"
   // and "3-day" match the searcher format-phrases.
-  title: 'Microblading Course in Berkshire | 1:1 ABT-Accredited Beginner Training | Beauty Within by Jasmine',
+  title: 'Eyebrow Microblading Course in Crowthorne, Berkshire | 1:1 ABT-Accredited Beginner Training | Beauty Within by Jasmine',
   description:
-    'Train to become a microblading artist with Jasmine Crean. A fully ABT-accredited, one-to-one 3-day beginner microblading course in Crowthorne, Berkshire — no experience required, full professional kit, live model, insurable certificate and flexible finance. Advanced 1:1 masterclass also available for qualified artists. Enquire today.',
+    'One-to-one, ABT-accredited 3-day microblading course in Crowthorne, Berkshire — near Bracknell, Wokingham, Camberley and Reading. No experience needed; full kit, live model, insurable certificate.',
   alternates: { canonical: '/training/', types: { 'text/markdown': '/training/index.md' } },
   openGraph: {
     title: 'Become a Microblading Artist | 1:1 Accredited Training',
-    description: 'Accredited 1:1 microblading training in Berkshire with Jasmine Crean. Enquire for full course details.',
+    description: 'One-to-one, ABT-accredited 3-day microblading course in Crowthorne, Berkshire — near Bracknell, Wokingham, Camberley and Reading. No experience needed; full kit, live model, insurable certificate.',
     type: 'website',
     url: '/training/',
     images: ['/images/training-kit.webp'],
@@ -107,9 +107,12 @@ const FAQ = [
   { q: 'Is everything provided?', a: 'Yes. A full professional kit is included along with all of your training materials — you leave ready to work.' },
   { q: 'Will I practise on a real person?', a: 'Yes. The course includes live model experience, performed under Jasmine’s one-to-one guidance.' },
   { q: 'What happens after the three days?', a: 'You complete 8–10 case studies with Jasmine’s ongoing support before certification, and her guidance continues well beyond that.' },
-  { q: 'Where is the training held?', a: 'At Jasmine’s studio in Crowthorne, Berkshire.' },
+  { q: 'Where is the training held?', a: 'At Jasmine’s studio at 58 Duke’s Ride, Crowthorne, Berkshire — easy to reach from Bracknell, Wokingham, Camberley, Sandhurst and Reading.' },
   { q: 'How many people are on each course?', a: 'Just you. All training is genuinely one-to-one.' },
   { q: 'I’m already a qualified artist — is there training for me?', a: 'Yes. Alongside the beginner course, Jasmine offers a 1:1 Advanced Microblading Masterclass — a fully personalised training day for already-qualified artists, tailored to your technique and goals, from finer hair strokes and brow mapping to pigment implantation and difficult skin types. Enquire for full details.' },
+  { q: 'What support do I get after the course?', a: 'Ongoing one-to-one after-care support: Jasmine guides you through your 8–10 case studies, answers questions as you start taking clients, and remains a phone call away well beyond the training days.' },
+  { q: 'Is this an eyebrow or brow technician course?', a: 'Yes — microblading is a semi-permanent eyebrow treatment, and this course trains you as a brow technician in Jasmine’s signature hair-stroke technique. Combination brows and other brow styles build on the same foundations.' },
+  { q: 'Where is Crowthorne?', a: 'Crowthorne is in Berkshire on the Surrey and Hampshire border — about ten minutes by car from Bracknell and Camberley, and around twenty from Wokingham, Farnborough and Reading.' },
 ];
 
 const courseSchema = {
@@ -189,8 +192,9 @@ export default function Training() {
               <Reveal as="p" className="lead" delay={0.12}>
                 Imagine working for yourself — setting your own hours, choosing where you work, and
                 building a career around a skill clients genuinely value. This fully ABT-accredited
-                microblading course is taught entirely one-to-one in Crowthorne, Berkshire, and
-                complete beginners are warmly welcome.
+                eyebrow microblading course is taught entirely one-to-one at Jasmine&rsquo;s studio in
+                Crowthorne, Berkshire — within easy reach of Bracknell, Wokingham, Camberley, Sandhurst
+                and Reading — and complete beginners are warmly welcome.
               </Reveal>
               <Reveal delay={0.18} className="hero-actions" style={{ marginTop: 28 }}>
                 <Link className="btn btn-gold" href="/#contact">Enquire About the Course <ArrowRight /></Link>
@@ -287,9 +291,10 @@ export default function Training() {
               <span className="badge"><Award style={{ width: 14, height: 14 }} /> ABT Accredited</span>
               <h3>3-Day Beginner Microblading Course</h3>
               <p>
-                An intensive 1:1 course that gives complete beginners the knowledge, hands-on practice
-                and ongoing support to build strong foundations and lasting confidence in Jasmine&rsquo;s
-                signature technique.
+                An intensive 1:1 microblading training course that gives complete beginners the
+                knowledge, hands-on practice and ongoing support to build strong foundations and lasting
+                confidence in Jasmine&rsquo;s signature technique — the brow technician skills to start
+                taking your own clients.
               </p>
               <ul className="includes">
                 {INCLUDES.map((item) => (
@@ -322,7 +327,7 @@ export default function Training() {
             <Reveal as="h2" className="section-title" delay={0.06}>Three days, then a lifetime of support</Reveal>
             <Reveal as="p" className="lead" delay={0.12}>
               Across the three days you move from theory to practice to performing on a live model —
-              then continue with case studies and Jasmine&rsquo;s ongoing mentorship.
+              then continue with case studies and Jasmine&rsquo;s ongoing after-care support.
             </Reveal>
           </div>
           <div className="services-grid">
@@ -430,8 +435,8 @@ export default function Training() {
             <Reveal as="div"><span className="eyebrow center">Also available</span></Reveal>
             <Reveal as="h2" className="section-title" delay={0.06}>1:1 Lash Lift &amp; Tint Training</Reveal>
             <Reveal as="p" className="lead" delay={0.12}>
-              A separate one-to-one course for those wanting to add lash treatments to their offering.
-              Enquire directly for full details.
+              A separate one-to-one lash lift and tint course for those wanting to add lash treatments
+              to their offering. Enquire directly for full details.
             </Reveal>
             <Reveal delay={0.18} style={{ marginTop: 24 }}>
               <Link className="btn btn-dark" href="/#contact">Enquire About Lash Training <ArrowRight /></Link>
