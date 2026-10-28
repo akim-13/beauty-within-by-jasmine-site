@@ -118,3 +118,10 @@ test('handler never throws: a failing next() first call falls back', async () =>
   assert.equal(res.status, 200);
   assert.equal(await res.text(), 'ok');
 });
+
+test('exclusion-only Accept: text/markdown;q=0 -> HTML (guide gotcha, not 406)', async () => {
+  const res = await call('/', 'text/markdown;q=0');
+  assert.equal(res.status, 200);
+  assert.match(res.headers.get('content-type'), /text\/html/);
+  assert.ok(varyHasAccept(res));
+});

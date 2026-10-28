@@ -60,6 +60,20 @@ test('llms.txt follows the llmstxt.org format', () => {
   for (const link of mdLinks) assert.ok(existsSync(path.join(OUT, link)), `llms.txt links missing file ${link}`);
 });
 
+test('llms.txt carries the live Google rating and count from data/reviews.json', () => {
+  const txt = read('llms.txt');
+  const reviews = JSON.parse(readFileSync(path.join(ROOT, 'data', 'reviews.json'), 'utf8'));
+  assert.ok(
+    txt.includes(`Reviews: ${reviews.rating} average from ${reviews.count} Google reviews.`),
+    'rating/count sentence matches data/reviews.json',
+  );
+  assert.doesNotMatch(txt, /\{\{\w+\}\}/, 'no unfilled placeholders');
+});
+
+test('portfolio captions are stripped from the homepage Markdown', () => {
+  assert.doesNotMatch(read('index.md'), /· Beauty Within$/m);
+});
+
 test('privacy page', () => {
   const text = visibleText(read('privacy/index.html'));
   assert.ok(text.length >= 500, `privacy text only ${text.length} chars`);

@@ -1,4 +1,4 @@
-// Post-build: emit a Markdown sibling (out/<path>index.md) for every page in
+// Post-build: emit out/llms.txt (from scripts/llms.txt.template) and a Markdown sibling (out/<path>index.md) for every page in
 // MARKDOWN_PAGES, converted from the exported HTML <main>. Served directly at
 // /<path>index.md and via `Accept: text/markdown` by the negotiate edge function.
 // Fails the build loudly if a page is missing or converts to almost nothing.
@@ -15,7 +15,8 @@ const OUT = path.join(ROOT, 'out');
 const MIN_CHARS = 300;
 
 const REMOVE_TAGS = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'SVG', 'IFRAME', 'FORM', 'IMG', 'PICTURE']);
-const REMOVE_CLASSES = ['mobile-menu', 'marquee', 'scroll-cue', 'hero-badge', 'stars'];
+// .cap = portfolio captions, meaningless without their images.
+const REMOVE_CLASSES = ['mobile-menu', 'marquee', 'scroll-cue', 'hero-badge', 'stars', 'cap'];
 
 const CONTACT_BLOCK =
   "Beauty Within by Jasmine · 58 Duke's Ride, Crowthorne, Berkshire, RG45 6NY · 07501 838484 · " +
@@ -83,6 +84,26 @@ function extractMain(html, file) {
     .replace(/([^>\s])<small>/gi, '$1 · <small>');
 }
 
+// out/llms.txt from scripts/llms.txt.template, with the live Google rating and
+// review count from data/reviews.json (refreshed by scripts/refresh-reviews.py).
+function buildLlmsTxt(failures) {
+  const reviews = JSON.parse(readFileSync(path.join(ROOT, 'data', 'reviews.json'), 'utf8'));
+  if (!reviews.rating || !Number.isFinite(Number(reviews.count))) {
+    failures.push('data/reviews.json lacks rating/count for llms.txt');
+    return;
+  }
+  const txt = readFileSync(path.join(ROOT, 'scripts', 'llms.txt.template'), 'utf8')
+    .replaceAll('{{rating}}', String(reviews.rating))
+    .replaceAll('{{count}}', String(reviews.count));
+  const left = txt.match(/\{\{\w+\}\}/);
+  if (left) {
+    failures.push(`llms.txt template has an unfilled placeholder ${left[0]}`);
+    return;
+  }
+  writeFileSync(path.join(OUT, 'llms.txt'), txt);
+  console.log(`build-markdown: out/llms.txt (${txt.length} chars)`);
+}
+
 function build() {
   const failures = [];
   for (const page of MARKDOWN_PAGES) {
@@ -111,6 +132,7 @@ function build() {
     writeFileSync(mdFile, md.replace(/\n{3,}/g, '\n\n'));
     console.log(`build-markdown: ${path.relative(ROOT, mdFile)} (${md.length} chars)`);
   }
+  buildLlmsTxt(failures);
   if (failures.length) {
     console.error(`build-markdown FAILED:\n  - ${failures.join('\n  - ')}`);
     process.exit(1);

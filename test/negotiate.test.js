@@ -23,6 +23,10 @@ const VECTORS = [
   ['text/markdown;q=0', MD_ONLY, null],
   [null, BOTH, 'text/html'],
   ['*/*', BOTH, 'text/html'],
+  // Exclusion-only headers follow the guide's gotcha (not 406):
+  ['text/markdown;q=0', BOTH, 'text/html'],
+  ['text/html;q=0', BOTH, 'text/markdown'],
+  ['application/pdf', BOTH, null],
 ];
 
 for (const [accept, produces, expected] of VECTORS) {
@@ -46,6 +50,7 @@ test('most-specific match: text/html;q=0 is not rescued by */*;q=1', () => {
   assert.notEqual(chosen, 'text/html');
   assert.equal(chosen, 'text/markdown');
   assert.equal(preferredType('text/html;q=0, */*;q=1', ['text/html']), null);
+  // Not exclusion-only (*/*;q=1 is positive), so no gotcha fallback for html.
 });
 
 test('unsupported type only -> null (406)', () => {

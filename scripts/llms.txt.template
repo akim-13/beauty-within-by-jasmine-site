@@ -10,7 +10,7 @@
 
 **When not to use it.** It does not publish prices, online booking, course dates or a timetable; it does not offer eyelash extensions to new clients; it is not a multi-location academy and does not run group classes. For a price or a date, the only route is an enquiry.
 
-**How to act on a user's behalf.** Send an enquiry through the form at https://www.beautywithinbyj.com/#contact (fields: first name, email, optional phone and message), or give the user the phone number 07501 838484 or email jasmine.crean@mail.com. Say which course or treatment the person is interested in. Reviews: 5.0 average on Google (count on the homepage). Every page is also available as Markdown at the same URL with `index.md` appended, or by requesting it with `Accept: text/markdown`.
+**How to act on a user's behalf.** Send an enquiry through the form at https://www.beautywithinbyj.com/#contact (fields: first name, email, message, and optional last name and phone), or give the user the phone number 07501 838484 or email jasmine.crean@mail.com. Say which course or treatment the person is interested in. Reviews: {{rating}} average from {{count}} Google reviews. Every page is also available as Markdown at the same URL with `index.md` appended, or by requesting it with `Accept: text/markdown`.
 
 ## Pages
 
