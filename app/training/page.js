@@ -185,16 +185,17 @@ export default function Training() {
         <div className="container">
           <div className="page-hero">
             <div className="section-head">
-              <Reveal as="div"><span className="eyebrow">Beauty Within Training Academy</span></Reveal>
+              <Reveal as="div"><span className="eyebrow">Microblading course · Crowthorne, Berkshire</span></Reveal>
               <Reveal as="h1" className="section-title" delay={0.06}>
                 Train to become a <em>microblading artist</em>
               </Reveal>
               <Reveal as="p" className="lead" delay={0.12}>
                 Imagine working for yourself — setting your own hours, choosing where you work, and
                 building a career around a skill clients genuinely value. This fully ABT-accredited
-                eyebrow microblading course is taught entirely one-to-one at Jasmine&rsquo;s studio in
-                Crowthorne, Berkshire — within easy reach of Bracknell, Wokingham, Camberley, Sandhurst
-                and Reading — and complete beginners are warmly welcome.
+                eyebrow microblading course — semi-permanent makeup (PMU) training — is taught entirely
+                one-to-one at Jasmine&rsquo;s studio in Crowthorne, Berkshire — within easy reach of
+                Bracknell, Wokingham, Camberley, Sandhurst and Reading — and complete beginners are
+                warmly welcome.
               </Reveal>
               <Reveal delay={0.18} className="hero-actions" style={{ marginTop: 28 }}>
                 <Link className="btn btn-gold" href="/#contact">Enquire About the Course <ArrowRight /></Link>
@@ -398,7 +399,8 @@ export default function Training() {
                 growth. Whether you want to create finer hair strokes, perfect your brow mapping,
                 improve pigment implantation or gain more confidence with difficult skin types, you
                 spend the day refining your work with Jasmine&rsquo;s one-to-one guidance, honest
-                feedback and hands-on support.
+                feedback and hands-on support. It is advanced semi-permanent makeup training for artists
+                who already hold a microblading qualification.
               </p>
               <ul className="includes">
                 {MASTERCLASS_INCLUDES.map((item) => (
