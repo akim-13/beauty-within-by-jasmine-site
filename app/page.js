@@ -108,7 +108,7 @@ const businessSchema = {
   url: 'https://www.beautywithinbyj.com/',
   name: 'Beauty Within by Jasmine',
   description:
-    "ABT-accredited 1:1 microblading and PMU training in Crowthorne, Berkshire, from Jasmine Crean — 15+ years' experience. Plus luxury semi-permanent makeup treatments.",
+    "ABT-accredited 1:1 microblading and brow training in Crowthorne, Berkshire, from Jasmine Crean — 15+ years' experience. Plus semi-permanent makeup: microblading, combination brows, lip blush, lash lift and tint.",
   image: 'https://www.beautywithinbyj.com/images/featured-5495.webp',
   telephone: '+447501838484',
   email: 'jasmine.crean@mail.com',
@@ -191,7 +191,7 @@ export default function Home() {
               <span>Microblading</span><span className="dot">·</span>
               <span>Lip Blush</span><span className="dot">·</span>
               <span>Combination Brows</span><span className="dot">·</span>
-              <span>Lash Treatments</span><span className="dot">·</span>
+              <span>Lash Lift &amp; Tint</span><span className="dot">·</span>
               <span>Accredited Training</span><span className="dot">·</span>
             </span>
           ))}
@@ -492,7 +492,7 @@ export default function Home() {
               </div>
               <p className="footer-blurb">
                 Luxury semi-permanent makeup tailored to you — microblading, lip blush, brows and lash
-                treatments, plus accredited 1:1 training in Crowthorne, Berkshire.
+                lift &amp; tint, plus accredited 1:1 training in Crowthorne, Berkshire.
               </p>
               <div style={{ display: 'flex', gap: 14, marginTop: 24 }}>
                 <a className="btn btn-light" href={GMAPS_LINK} target="_blank" rel="noopener noreferrer" style={{ padding: '12px 18px' }}>

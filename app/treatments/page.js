@@ -23,7 +23,7 @@ export const metadata = {
   alternates: { canonical: '/treatments/', types: { 'text/markdown': '/treatments/index.md' } },
   openGraph: {
     title: 'Semi-Permanent Makeup in Crowthorne, Berkshire',
-    description: 'Microblading, lip blush, combination brows and lash treatments, tailored to you.',
+    description: 'Microblading, lip blush, combination brows and lash lift & tint, tailored to you.',
     type: 'website',
     url: '/treatments/',
     images: ['/images/featured-5495.webp'],
@@ -214,7 +214,7 @@ export default function Treatments() {
             <Reveal as="h2" className="section-title">Ready to book?</Reveal>
             <Reveal as="p" className="lead" delay={0.06}>
               Get in touch to arrange your consultation. Thinking about training instead?{' '}
-              <Link href="/training/" style={{ textDecoration: 'underline' }}>See the Training Academy</Link>.
+              <Link href="/training/" style={{ textDecoration: 'underline' }}>See the microblading course</Link>.
             </Reveal>
             <Reveal delay={0.12} style={{ marginTop: 24 }}>
               <Link className="btn btn-dark" href="/#contact">Book a Consultation <ArrowRight /></Link>

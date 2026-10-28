@@ -22,11 +22,11 @@ export const metadata = {
   // and "3-day" match the searcher format-phrases.
   title: 'Eyebrow Microblading Course in Crowthorne, Berkshire | 1:1 ABT-Accredited Beginner Training | Beauty Within by Jasmine',
   description:
-    'One-to-one, ABT-accredited 3-day microblading course in Crowthorne, Berkshire — near Bracknell, Wokingham, Camberley and Reading. No experience needed; full kit, live model, insurable certificate.',
+    '1:1 ABT-accredited 3-day microblading course in Crowthorne, Berkshire, near Bracknell, Wokingham and Reading. No experience needed; kit & certificate included.',
   alternates: { canonical: '/training/', types: { 'text/markdown': '/training/index.md' } },
   openGraph: {
     title: 'Become a Microblading Artist | 1:1 Accredited Training',
-    description: 'One-to-one, ABT-accredited 3-day microblading course in Crowthorne, Berkshire — near Bracknell, Wokingham, Camberley and Reading. No experience needed; full kit, live model, insurable certificate.',
+    description: '1:1 ABT-accredited 3-day microblading course in Crowthorne, Berkshire, near Bracknell, Wokingham and Reading. No experience needed; kit & certificate included.',
     type: 'website',
     url: '/training/',
     images: ['/images/training-kit.webp'],
