@@ -11,6 +11,11 @@ import {
 // Auto-updated by scripts/refresh-reviews.py (do not hand-edit if automation is on).
 import reviews from '@/data/reviews.json';
 
+// Page-level alternates replace the layout's, so canonical is restated here.
+export const metadata = {
+  alternates: { canonical: '/', types: { 'text/markdown': '/index.md' } },
+};
+
 const INSTAGRAM_URL = 'https://www.instagram.com/beautywithinbyjasmine/';
 
 const GMAPS_EMBED =
@@ -107,7 +112,18 @@ const businessSchema = {
   image: 'https://www.beautywithinbyj.com/images/featured-5495.webp',
   telephone: '+447501838484',
   email: 'jasmine.crean@mail.com',
-  founder: { '@type': 'Person', name: 'Jasmine Crean' },
+  founder: {
+    '@type': 'Person',
+    '@id': 'https://www.beautywithinbyj.com/#jasmine',
+    name: 'Jasmine Crean',
+    jobTitle: 'Founder, Permanent Makeup Artist & Educator',
+    description:
+      'Permanent makeup artist and ABT-accredited educator with over 15 years in the beauty industry, founder of Beauty Within by Jasmine in Crowthorne, Berkshire, teaching one-to-one microblading courses.',
+    url: 'https://www.beautywithinbyj.com/#about',
+    image: 'https://www.beautywithinbyj.com/images/jasmine-portrait.webp',
+    sameAs: [INSTAGRAM_URL],
+    worksFor: { '@type': 'Organization', '@id': 'https://www.beautywithinbyj.com/#business', name: 'Beauty Within by Jasmine' },
+  },
   address: {
     '@type': 'PostalAddress',
     streetAddress: "58 Duke's Ride",
@@ -499,7 +515,7 @@ export default function Home() {
           </div>
           <div className="footer-bottom">
             <span>© {2026} Beauty Within by Jasmine. All rights reserved.</span>
-            <span>Training &amp; treatment details available on enquiry.</span>
+            <span>Training &amp; treatment details available on enquiry. · <Link href="/privacy/">Privacy</Link></span>
           </div>
         </div>
       </footer>

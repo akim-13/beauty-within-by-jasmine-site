@@ -23,7 +23,7 @@ export const metadata = {
   title: 'Microblading Course in Berkshire | 1:1 ABT-Accredited Beginner Training | Beauty Within by Jasmine',
   description:
     'Train to become a microblading artist with Jasmine Crean. A fully ABT-accredited, one-to-one 3-day beginner microblading course in Crowthorne, Berkshire — no experience required, full professional kit, live model, insurable certificate and flexible finance. Advanced 1:1 masterclass also available for qualified artists. Enquire today.',
-  alternates: { canonical: '/training/' },
+  alternates: { canonical: '/training/', types: { 'text/markdown': '/training/index.md' } },
   openGraph: {
     title: 'Become a Microblading Artist | 1:1 Accredited Training',
     description: 'Accredited 1:1 microblading training in Berkshire with Jasmine Crean. Enquire for full course details.',

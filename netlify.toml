@@ -35,3 +35,43 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "SAMEORIGIN"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# --- Agent readiness (acceptmarkdown.com + llms.txt) -------------------------
+# Markdown siblings (out/**/index.md) are generated at build by
+# scripts/build-markdown.mjs. The negotiate edge function serves them from the
+# page URL when a client sends `Accept: text/markdown`, adds `Vary: Accept` and
+# `Link` (alternate + describedby) to HTML, returns a Markdown 404 for unknown
+# paths and 406 when neither HTML nor Markdown is acceptable. Static assets
+# (including direct /…/index.md and /llms.txt requests) bypass it.
+[[edge_functions]]
+  function = "negotiate"
+  path = "/*"
+  excludedPath = [
+    "/_next/*", "/images/*", "/.netlify/*",
+    "/*.css", "/*.js", "/*.map", "/*.png", "/*.jpg", "/*.jpeg", "/*.webp", "/*.gif",
+    "/*.svg", "/*.ico", "/*.woff", "/*.woff2", "/*.xml", "/*.txt", "/*.json", "/*.md", "/*.pdf",
+  ]
+
+[[headers]]
+  for = "/*.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    Link = "</llms.txt>; rel=\"describedby\""
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+
+# Old Wix URLs that are still indexed.
+[[redirects]]
+  from = "/blank-5"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blank-6"
+  to = "/"
+  status = 301
+  force = true

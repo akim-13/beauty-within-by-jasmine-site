@@ -622,6 +622,17 @@ img { display: block; max-width: 100%; }
 .page-hero .section-head { max-width: none; }
 .page-hero-media { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/5; }
 
+/* ---------- Long-form prose (privacy notice) ---------- */
+.prose { max-width: 760px; }
+.prose h2 { font-size: clamp(1.4rem, 2.4vw, 1.8rem); margin: 44px 0 0; }
+.prose h2:first-child { margin-top: 0; }
+.prose p, .prose li { color: var(--muted); line-height: 1.75; }
+.prose p { margin-top: 14px; }
+.prose ul { margin: 14px 0 0; padding-left: 1.2em; }
+.prose li { margin-top: 6px; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
 /* ---------- Light-background feature checklist ---------- */
 .why-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 44px; max-width: 640px; margin: 36px auto 0; }
 .why-list li { display: flex; gap: 12px; align-items: center; font-size: 1.06rem; color: var(--ink-2); }

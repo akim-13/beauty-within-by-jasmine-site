@@ -4,13 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build && node scripts/build-markdown.mjs",
+    "start": "next start",
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test \"test/*.test.js\""
   },
   "dependencies": {
+    "@joplin/turndown-plugin-gfm": "^1.0.68",
     "framer-motion": "^11.18.2",
     "next": "^15.5.19",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "turndown": "^7.2.4"
   }
 }

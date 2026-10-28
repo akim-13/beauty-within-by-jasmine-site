@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import { ArrowRight, CheckCircle } from './icons';
 
 // Netlify Forms: the <form> is tagged data-netlify so Netlify captures it at deploy
@@ -97,6 +98,7 @@ export default function ContactForm() {
           </p>
         )}
         <p className="form-note">Prefer to talk? Call or message <a href="tel:07501838484" style={{ color: 'var(--gold)' }}>07501 838484</a>. Treatment pricing is available on enquiry.</p>
+        <p className="form-note">By sending an enquiry you agree to the <Link href="/privacy/" style={{ color: 'var(--gold)' }}>privacy notice</Link>.</p>
       </form>
     </div>
   );

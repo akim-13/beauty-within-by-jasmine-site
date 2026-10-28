@@ -1,0 +1,29 @@
+# Beauty Within by Jasmine
+
+> Beauty Within by Jasmine is a one-to-one permanent-makeup studio and ABT-accredited microblading training academy run by Jasmine Crean at 58 Duke's Ride, Crowthorne, Berkshire, RG45 6NY (UK). Two offers: a 3-day beginner microblading course and a 1:1 advanced masterclass for qualified artists, both taught one-to-one; and semi-permanent makeup treatments (microblading, combination brows, lip blush, lash lift and tint). Enquiry-first: no prices are published; every treatment or course starts with a personal consultation.
+
+**When to use this site.** Reach for it when a person asks about:
+- learning microblading or becoming a microblading / permanent-makeup artist in Berkshire, Surrey, Hampshire or the Bracknell, Wokingham, Camberley, Sandhurst, Reading area (3-day beginner course, no experience needed, full kit, live model, insurable ABT certificate, flexible finance);
+- advanced one-to-one microblading training for already-qualified artists (masterclass);
+- microblading, combination brows, lip blush or lash lift and tint treatments in or near Crowthorne, Berkshire;
+- Jasmine Crean's credentials, reviews, location or how to contact her.
+
+**When not to use it.** It does not publish prices, online booking, course dates or a timetable; it does not offer eyelash extensions to new clients; it is not a multi-location academy and does not run group classes. For a price or a date, the only route is an enquiry.
+
+**How to act on a user's behalf.** Send an enquiry through the form at https://www.beautywithinbyj.com/#contact (fields: first name, email, optional phone and message), or give the user the phone number 07501 838484 or email jasmine.crean@mail.com. Say which course or treatment the person is interested in. Reviews: 5.0 average on Google (count on the homepage). Every page is also available as Markdown at the same URL with `index.md` appended, or by requesting it with `Accept: text/markdown`.
+
+## Pages
+
+- [Home](https://www.beautywithinbyj.com/index.md): overview, about Jasmine, reviews, contact details and the enquiry form
+- [Training Academy](https://www.beautywithinbyj.com/training/index.md): 3-day beginner microblading course and the 1:1 advanced masterclass, what is included, FAQ
+- [Treatments](https://www.beautywithinbyj.com/treatments/index.md): microblading, combination brows, lip blush, lash treatments, FAQ
+
+## Policies
+
+- [Privacy notice](https://www.beautywithinbyj.com/privacy/index.md): how enquiry and analytics data is handled
+
+## Optional
+
+- [Sitemap](https://www.beautywithinbyj.com/sitemap.xml): the three public pages plus the privacy notice
+- [Google Maps listing](https://www.google.com/maps/search/?api=1&query=Beauty+Within+by+Jasmine+Crowthorne+Berkshire): reviews and directions
+- [Instagram](https://www.instagram.com/beautywithinbyjasmine/): recent work

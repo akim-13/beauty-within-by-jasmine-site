@@ -52,6 +52,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <head>
+        {/* Agent-readable site guide (llms.txt). */}
+        <link rel="describedby" href="/llms.txt" />
         {GA_ID && (
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />

@@ -20,7 +20,7 @@ export const metadata = {
   title: 'Microblading, Lip Blush & Brow Treatments in Crowthorne, Berkshire | Beauty Within by Jasmine',
   description:
     'Natural, confidence-enhancing semi-permanent makeup in Crowthorne, Berkshire. Microblading, combination brows, lip blush and lash treatments by Jasmine Crean, tailored to you. Book a consultation.',
-  alternates: { canonical: '/treatments/' },
+  alternates: { canonical: '/treatments/', types: { 'text/markdown': '/treatments/index.md' } },
   openGraph: {
     title: 'Semi-Permanent Makeup Treatments | Crowthorne, Berkshire',
     description: 'Microblading, lip blush, combination brows and lash treatments, tailored to you.',
