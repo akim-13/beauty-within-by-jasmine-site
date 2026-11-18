@@ -1,16 +1,15 @@
 name: Refresh Google review count
 
-# Reads the current Google rating + review count from the Places API and commits
-# data/reviews.json when it changes. The push then auto-builds on Netlify (public
-# repo, no verified-contributor gate). Fails safe: on any API hiccup the script
-# leaves the file untouched and exits 0, so a bad run is a no-op, not a failure.
-#
-# Requires repo secret GOOGLE_MAPS_API_KEY (a Places-API-enabled Google Cloud key).
+# Reads the current Google rating + review count from the public Google Maps listing
+# (headless Chromium, see scripts/refresh-reviews.py) and commits data/reviews.json
+# when it changes. The push then auto-builds on Netlify. On a failed read the file is
+# left untouched (last-good stays live) BUT the run fails, so GitHub emails the owner.
+# No API key or secret needed.
 
 on:
   workflow_dispatch:        # manual runs
   schedule:
-    - cron: '0 7 1,15 * *'  # ~biweekly: 1st & 15th of each month, 07:00 UTC
+    - cron: '0 7 * * 1'     # weekly, Mondays 07:00 UTC
 
 permissions:
   contents: write           # allow the job to push the updated reviews.json
@@ -22,7 +21,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -30,10 +29,19 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install headless Chromium
+        run: pip install playwright==1.49.1 && python -m playwright install --with-deps chromium
+
       - name: Refresh reviews.json
-        env:
-          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
         run: python scripts/refresh-reviews.py --out data/reviews.json
+
+      - name: Upload debug files on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviews-debug
+          path: reviews-debug.*
+          if-no-files-found: ignore
 
       - name: Commit if the number changed
         run: |
