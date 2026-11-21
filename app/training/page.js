@@ -37,23 +37,23 @@ const INCLUDES = [
   '1:1 Intensive Training', 'No Experience Required', 'Fully ABT Accredited',
   'Signature Microblading Technique', 'Live Model Experience', 'Anatomy & Physiology',
   'Skin, Colour & Pigment Theory', 'Consultation & Aftercare', 'Full Professional Kit Included',
-  'Flexible Finance Available', '8–10 Case Studies', 'Insurable Certificate',
+  'Flexible Finance Available', '8 to 10 Case Studies', 'Insurable Certificate',
 ];
 
 const WHY = [
-  { icon: GradCap, t: 'Learn from a working artist & educator', d: 'Over 15 years in the industry and a decade running her own studio — you learn a technique proven on real, paying clients, not just theory.' },
-  { icon: Heart, t: 'Genuinely one-to-one', d: 'Just you and Jasmine. No crowded classroom and no sharing a model — every minute of the three days is yours.' },
+  { icon: GradCap, t: 'Learn from a working artist & educator', d: 'Over 15 years in the industry and a decade running her own studio. You learn a technique that is proven on real, paying clients rather than just in theory.' },
+  { icon: Heart, t: 'Genuinely one-to-one', d: 'Just you and Jasmine. There is no crowded classroom and no sharing a model. Every minute of the three days is yours.' },
   { icon: Award, t: 'Accredited & insurable', d: 'Fully ABT accredited with an insurable certificate on completion, so you can get insured and start working straight away.' },
-  { icon: Clock, t: 'Support beyond the course', d: 'Her support does not end when your training days do — she guides you through your case studies and beyond.' },
+  { icon: Clock, t: 'Support beyond the course', d: 'Her support does not end when your training days do. She guides you through your case studies and beyond.' },
 ];
 
 // Outcome-led benefits — what the skill gives them (the reason to train at all).
 const BENEFITS = [
   { t: 'Become your own boss', d: 'Build a business that belongs to you, shaped around your own standards and ambitions rather than someone else’s.' },
-  { t: 'Set your own hours', d: 'Work around the school run, another job, or simply the life you want — your diary, your decisions.' },
-  { t: 'Work from anywhere', d: 'Practise from a home studio, rent a salon chair, or travel to clients — this skill moves with you.' },
+  { t: 'Set your own hours', d: 'Work around the school run, another job, or simply the life you want. Your diary and your decisions are your own.' },
+  { t: 'Work from anywhere', d: 'Practise from a home studio, rent a salon chair, or travel to clients. This skill moves with you.' },
   { t: 'A skill in real demand', d: 'Beautiful, natural-looking brows are consistently sought after, and skilled artists can charge accordingly for their time.' },
-  { t: 'Change how clients feel', d: 'There is deep satisfaction in watching someone see their new brows for the first time — you become part of their confidence.' },
+  { t: 'Change how clients feel', d: 'There is deep satisfaction in watching someone see their new brows for the first time. You become part of their confidence.' },
   { t: 'A modest start-up cost', d: 'With your full professional kit included and little equipment needed beyond it, launching your business does not require a large outlay.' },
 ];
 
@@ -72,11 +72,11 @@ const INCOME = [
 // Phases (distilled from the course themes — NOT a fixed timetable).
 const STAGES = [
   { n: '01', t: 'Foundations & compliance', d: 'You begin with the essentials of working safely and professionally: health & safety, hygiene, insurance, local council requirements, anatomy & physiology and contraindications.' },
-  { n: '02', t: 'Skin & pigment theory', d: 'Understand the canvas you work on — skin theory, colour and pigment theory, and the Fitzpatrick scale — so every choice you make is informed, not guessed.' },
+  { n: '02', t: 'Skin & pigment theory', d: 'Understand the canvas you work on (skin theory, colour and pigment theory, and the Fitzpatrick scale) so every choice you make is informed rather than guessed.' },
   { n: '03', t: 'Technique & brow mapping', d: 'Learn Jasmine’s signature microblading technique alongside brow mapping, blade selection, workstation set-up and troubleshooting.' },
-  { n: '04', t: 'Hands-on practice', d: 'You refine your strokes on latex and practice materials until they feel natural — building genuine confidence before you ever work on skin.' },
-  { n: '05', t: 'Supervised live models', d: 'With Jasmine beside you throughout, you perform microblading on real models — one-to-one guidance at the moment it matters most.' },
-  { n: '06', t: 'Business building & certification', d: 'You learn how to launch and grow your business, including social media, then complete 8–10 case studies with Jasmine’s ongoing support — earning your ABT-accredited, insurable certificate.' },
+  { n: '04', t: 'Hands-on practice', d: 'You refine your strokes on latex and practice materials until they feel natural. That builds genuine confidence before you ever work on skin.' },
+  { n: '05', t: 'Supervised live models', d: 'With Jasmine beside you throughout, you perform microblading on real models, with one-to-one guidance at the moment it matters most.' },
+  { n: '06', t: 'Business building & certification', d: 'You learn how to launch and grow your business, including social media, then complete 8 to 10 case studies with Jasmine’s ongoing support to earn your ABT-accredited, insurable certificate.' },
 ];
 
 // Masterclass for already-qualified artists — copy sourced from Jasmine's flyer
@@ -100,19 +100,19 @@ const GMAPS_LINK =
 
 const FAQ = [
   { q: 'Do I need any experience?', a: 'No. The 3-Day Beginner Microblading Course is designed for complete beginners and takes you from the foundations through to working on a live model.' },
-  { q: 'Is the course accredited?', a: 'Yes — it is fully ABT accredited, and you receive an insurable certificate on completion, so you can get insured and start taking clients.' },
+  { q: 'Is the course accredited?', a: 'Yes. It is fully ABT accredited, and you receive an insurable certificate on completion, so you can get insured and start taking clients.' },
   { q: 'How much does the course cost?', a: 'Pricing is discussed during a quick, no-obligation chat so it can be tailored to you, and flexible finance is available. Get in touch and Jasmine will talk you through everything.' },
-  { q: 'What could I earn as a microblading artist?', a: 'That is entirely up to you — you set your own prices and choose how much you work. As an illustration, Jasmine charges around £275 per microblading treatment, so even a small number of weekly clients can build into a worthwhile income. These examples are illustrative only and not a guarantee: your earnings depend on your rates, your hours and how you grow your business — which is exactly what the business-building part of the course helps you plan.' },
-  { q: 'What can I do once I’m qualified?', a: 'Your certificate is ABT-accredited and insurable, so you can start taking paying clients — from home, in a salon, or mobile — as soon as you are certified and insured. The course includes business-building and social media guidance, your full professional kit is included, flexible finance is available, and Jasmine’s mentorship continues well beyond the training days.' },
-  { q: 'Is everything provided?', a: 'Yes. A full professional kit is included along with all of your training materials — you leave ready to work.' },
+  { q: 'What could I earn as a microblading artist?', a: 'That is entirely up to you, because you set your own prices and choose how much you work. As an illustration, Jasmine charges around £275 per microblading treatment, so even a small number of weekly clients can build into a worthwhile income. These examples are illustrative only and not a guarantee: your earnings depend on your rates, your hours and how you grow your business, which is exactly what the business-building part of the course helps you plan.' },
+  { q: 'What can I do once I’m qualified?', a: 'Your certificate is ABT-accredited and insurable, so you can start taking paying clients (from home, in a salon, or mobile) as soon as you are certified and insured. The course includes business-building and social media guidance, your full professional kit is included, flexible finance is available, and Jasmine’s mentorship continues well beyond the training days.' },
+  { q: 'Is everything provided?', a: 'Yes. A full professional kit is included along with all of your training materials, so you leave ready to work.' },
   { q: 'Will I practise on a real person?', a: 'Yes. The course includes live model experience, performed under Jasmine’s one-to-one guidance.' },
-  { q: 'What happens after the three days?', a: 'You complete 8–10 case studies with Jasmine’s ongoing support before certification, and her guidance continues well beyond that.' },
-  { q: 'Where is the training held?', a: 'At Jasmine’s studio at 58 Duke’s Ride, Crowthorne, Berkshire — easy to reach from Bracknell, Wokingham, Camberley, Sandhurst and Reading.' },
+  { q: 'What happens after the three days?', a: 'You complete 8 to 10 case studies with Jasmine’s ongoing support before certification, and her guidance continues well beyond that.' },
+  { q: 'Where is the training held?', a: 'At Jasmine’s studio at 58 Duke’s Ride, Crowthorne, Berkshire, which is easy to reach from Bracknell, Wokingham, Camberley, Sandhurst and Reading.' },
   { q: 'How many people are on each course?', a: 'Just you. All training is genuinely one-to-one.' },
-  { q: 'I’m already a qualified artist — is there training for me?', a: 'Yes. Alongside the beginner course, Jasmine offers a 1:1 Advanced Microblading Masterclass — a fully personalised training day for already-qualified artists, tailored to your technique and goals, from finer hair strokes and brow mapping to pigment implantation and difficult skin types. Enquire for full details.' },
-  { q: 'What support do I get after the course?', a: 'Ongoing one-to-one after-care support: Jasmine guides you through your 8–10 case studies, answers questions as you start taking clients, and remains a phone call away well beyond the training days.' },
-  { q: 'Is this an eyebrow or brow technician course?', a: 'Yes — microblading is a semi-permanent eyebrow treatment, and this course trains you as a brow technician in Jasmine’s signature hair-stroke technique. Combination brows and other brow styles build on the same foundations.' },
-  { q: 'Where is Crowthorne?', a: 'Crowthorne is in Berkshire on the Surrey and Hampshire border — about ten minutes by car from Bracknell and Camberley, and around twenty from Wokingham, Farnborough and Reading.' },
+  { q: 'I’m already a qualified artist. Is there training for me?', a: 'Yes. Alongside the beginner course, Jasmine offers a 1:1 Advanced Microblading Masterclass. It is a fully personalised training day for already-qualified artists, tailored to your technique and goals, covering finer hair strokes, brow mapping, pigment implantation and difficult skin types. Enquire for full details.' },
+  { q: 'What support do I get after the course?', a: 'Ongoing one-to-one after-care support: Jasmine guides you through your 8 to 10 case studies, answers questions as you start taking clients, and remains a phone call away well beyond the training days.' },
+  { q: 'Is this an eyebrow or brow technician course?', a: 'Yes. Microblading is a semi-permanent eyebrow treatment, and this course trains you as a brow technician in Jasmine’s signature hair-stroke technique. Combination brows and other brow styles build on the same foundations.' },
+  { q: 'Where is Crowthorne?', a: 'Crowthorne is in Berkshire on the Surrey and Hampshire border, about ten minutes by car from Bracknell and Camberley, and around twenty from Wokingham, Farnborough and Reading.' },
 ];
 
 const courseSchema = {
@@ -121,7 +121,7 @@ const courseSchema = {
   url: 'https://www.beautywithinbyj.com/training/',
   name: '3-Day Beginner Microblading Course',
   description:
-    'A fully ABT-accredited, one-to-one beginner microblading course in Crowthorne, Berkshire. No experience required. Includes a full professional kit, live model experience, 8–10 case studies and an insurable certificate.',
+    'A fully ABT-accredited, one-to-one beginner microblading course in Crowthorne, Berkshire. No experience required. Includes a full professional kit, live model experience, 8 to 10 case studies and an insurable certificate.',
   provider: {
     '@type': 'Organization',
     '@id': 'https://www.beautywithinbyj.com/#business',
@@ -143,7 +143,7 @@ const masterclassSchema = {
   url: 'https://www.beautywithinbyj.com/training/#masterclass',
   name: '1:1 Advanced Microblading Masterclass',
   description:
-    'A fully personalised one-to-one training day for already-qualified microblading artists in Crowthorne, Berkshire. Tailored to your technique and goals — finer hair strokes, brow mapping, pigment implantation, healed retention and confidence with difficult skin types.',
+    'A fully personalised one-to-one training day for already-qualified microblading artists in Crowthorne, Berkshire. Tailored to your technique and goals: finer hair strokes, brow mapping, pigment implantation, healed retention and confidence with difficult skin types.',
   provider: {
     '@type': 'Organization',
     '@id': 'https://www.beautywithinbyj.com/#business',
@@ -190,12 +190,12 @@ export default function Training() {
                 Train to become a <em>microblading artist</em>
               </Reveal>
               <Reveal as="p" className="lead" delay={0.12}>
-                Imagine working for yourself — setting your own hours, choosing where you work, and
+                Imagine working for yourself: setting your own hours, choosing where you work, and
                 building a career around a skill clients genuinely value. This fully ABT-accredited
-                eyebrow microblading course — semi-permanent makeup (PMU) training — is taught entirely
-                one-to-one at Jasmine&rsquo;s studio in Crowthorne, Berkshire — within easy reach of
-                Bracknell, Wokingham, Camberley, Sandhurst and Reading — and complete beginners are
-                warmly welcome.
+                eyebrow microblading course (semi-permanent makeup, or PMU, training) is taught
+                entirely one-to-one at Jasmine&rsquo;s studio in Crowthorne, Berkshire. The studio
+                is within easy reach of Bracknell, Wokingham, Camberley, Sandhurst and Reading, and
+                complete beginners are warmly welcome.
               </Reveal>
               <Reveal delay={0.18} className="hero-actions" style={{ marginTop: 28 }}>
                 <Link className="btn btn-gold" href="/#contact">Enquire About the Course <ArrowRight /></Link>
@@ -215,9 +215,9 @@ export default function Training() {
         <div className="container">
           <div className="section-head center">
             <Reveal as="div"><span className="eyebrow center">Where it can take you</span></Reveal>
-            <Reveal as="h2" className="section-title" delay={0.06}>One skill. A <em>different working life</em>.</Reveal>
+            <Reveal as="h2" className="section-title" delay={0.06}>One skill, a <em>different working life</em>.</Reveal>
             <Reveal as="p" className="lead" delay={0.12}>
-              Microblading is more than a technique — it is a foundation for the kind of career many
+              Microblading is more than a technique. It is a foundation for the kind of career many
               people quietly wish they had.
             </Reveal>
           </div>
@@ -233,7 +233,7 @@ export default function Training() {
           {/* Illustrative earning potential — figures clearly framed as illustrative, never a guarantee. */}
           <div className="income-block">
             <Reveal as="p" className="income-intro">
-              As a guide, Jasmine charges around £275 per microblading treatment — so even a handful of
+              As a guide, Jasmine charges around £275 per microblading treatment, so even a handful of
               clients a week can add up to a meaningful income. Once qualified, you set your own rates
               and your own pace, whether that means a few appointments around family life or a full diary.
             </Reveal>
@@ -258,7 +258,7 @@ export default function Training() {
               </table>
             </Reveal>
             <Reveal as="p" className="income-note" delay={0.1}>
-              These figures are illustrative examples only, not a guarantee of income — what you earn
+              These figures are illustrative examples only, not a guarantee of income. What you earn
               will depend on your own rates, hours and circumstances.
             </Reveal>
           </div>
@@ -294,8 +294,8 @@ export default function Training() {
               <p>
                 An intensive 1:1 microblading training course that gives complete beginners the
                 knowledge, hands-on practice and ongoing support to build strong foundations and lasting
-                confidence in Jasmine&rsquo;s signature technique — the brow technician skills to start
-                taking your own clients.
+                confidence in Jasmine&rsquo;s signature technique. You gain the brow technician
+                skills to start taking your own clients.
               </p>
               <ul className="includes">
                 {INCLUDES.map((item) => (
@@ -327,7 +327,7 @@ export default function Training() {
             <Reveal as="div"><span className="eyebrow">What you’ll cover</span></Reveal>
             <Reveal as="h2" className="section-title" delay={0.06}>Three days, then a lifetime of support</Reveal>
             <Reveal as="p" className="lead" delay={0.12}>
-              Across the three days you move from theory to practice to performing on a live model —
+              Across the three days you move from theory to practice to performing on a live model,
               then continue with case studies and Jasmine&rsquo;s ongoing after-care support.
             </Reveal>
           </div>
@@ -366,7 +366,7 @@ export default function Training() {
               </Reveal>
               <Reveal as="p" delay={0.12}>
                 The course is fully ABT (Association of Beauty Therapists) accredited and leads to an
-                insurable certificate — so once your case studies are complete, you can get insured and
+                insurable certificate, so once your case studies are complete, you can get insured and
                 start taking your own paying clients.
               </Reveal>
               <Reveal as="p" delay={0.18}>
@@ -412,7 +412,7 @@ export default function Training() {
             <Reveal className="masterclass-media" delay={0.1}>
               <div className="img-frame">
                 <Image src="/images/masterclass-flyer.webp"
-                  alt="1:1 Advanced Microblading Masterclass — a personalised training day for qualified artists, designed around your technique and focused on your growth"
+                  alt="1:1 Advanced Microblading Masterclass: a personalised training day for qualified artists, designed around your technique and focused on your growth"
                   width={1400} height={1400} sizes="(max-width: 1024px) 100vw, 55vw"
                   style={{ width: '100%', height: 'auto', display: 'block' }} />
               </div>
@@ -472,7 +472,7 @@ export default function Training() {
             <Reveal as="h2" className="section-title">Ready to start your microblading career?</Reveal>
             <Reveal as="p" className="lead" delay={0.06}>
               Places are 1:1, so dates are limited. Enquire to arrange an informal chat, get the full
-              course details and talk through finance options — no pressure, no obligation.
+              course details and talk through finance options. There is no pressure and no obligation.
             </Reveal>
             <Reveal delay={0.12} style={{ marginTop: 24 }}>
               <Link className="btn btn-gold" href="/#contact">Enquire About the Course <ArrowRight /></Link>

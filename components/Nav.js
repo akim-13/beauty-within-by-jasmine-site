@@ -67,7 +67,7 @@ export default function Nav() {
     <>
       <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
         <div className="container nav-inner">
-          <Link href="/" className="brand" aria-label="Beauty Within by Jasmine — home">
+          <Link href="/" className="brand" aria-label="Beauty Within by Jasmine, home">
             <Image src="/images/logo.png" alt="Beauty Within by Jasmine" width={1168} height={520} className="brand-logo" priority />
           </Link>
           <nav className="nav-links" aria-label="Primary">

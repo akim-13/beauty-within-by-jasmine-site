@@ -22,7 +22,7 @@ export const metadata = {
   // transactional terms.
   title: 'Beauty Within by Jasmine | Microblading Training Academy & Semi-Permanent Makeup | Crowthorne, Berkshire',
   description:
-    "ABT-accredited 1:1 microblading and brow training in Crowthorne, Berkshire, from Jasmine Crean — 15+ years' experience. Plus semi-permanent makeup: microblading, combination brows, lip blush, lash lift and tint.",
+    "ABT-accredited 1:1 microblading and brow training in Crowthorne, Berkshire, from Jasmine Crean, with 15+ years' experience. Plus semi-permanent makeup: microblading, combination brows, lip blush, lash lift and tint.",
   metadataBase: new URL('https://www.beautywithinbyj.com'),
   alternates: { canonical: '/' },
   openGraph: {

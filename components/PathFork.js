@@ -39,7 +39,7 @@ export default function PathFork() {
       <div className="container">
         {/* Visually-hidden section heading so the outline reads h1 -> h2 -> h3
             (the path cards below are h3). No visible change. */}
-        <h2 className="sr-only">Training and treatments — choose your path</h2>
+        <h2 className="sr-only">Training and treatments: choose your path</h2>
         <div className="path-fork">
           {PATHS.map((p, i) => (
             <Reveal key={p.href} delay={i * 0.08}>

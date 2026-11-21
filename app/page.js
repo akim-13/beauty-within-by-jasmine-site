@@ -65,7 +65,7 @@ const REVIEWS = [
   {
     source: 'client',
     name: 'Sue M.',
-    treatment: 'Microblading · 6–12 month colour boost',
+    treatment: 'Microblading · 6 to 12 month colour boost',
     date: 'August 2026',
     text: 'I wish I had taken the plunge and got my brows done years ago. **I feel so much more confident.** Jasmine is amazing and talks you through the whole process – **wouldn’t go anywhere else**. Thank you so much Jasmine x',
   },
@@ -108,7 +108,7 @@ const businessSchema = {
   url: 'https://www.beautywithinbyj.com/',
   name: 'Beauty Within by Jasmine',
   description:
-    "ABT-accredited 1:1 microblading and brow training in Crowthorne, Berkshire, from Jasmine Crean — 15+ years' experience. Plus semi-permanent makeup: microblading, combination brows, lip blush, lash lift and tint.",
+    "ABT-accredited 1:1 microblading and brow training in Crowthorne, Berkshire, from Jasmine Crean, with 15+ years' experience. Plus semi-permanent makeup: microblading, combination brows, lip blush, lash lift and tint.",
   image: 'https://www.beautywithinbyj.com/images/featured-5495.webp',
   telephone: '+447501838484',
   email: 'jasmine.crean@mail.com',
@@ -153,8 +153,8 @@ export default function Home() {
             Semi-permanent makeup,<br />and the <em>training to master it.</em>
           </Reveal>
           <Reveal as="p" className="hero-sub" delay={0.16}>
-            Natural, confidence-enhancing microblading, lip blush, brows and lashes by Jasmine Crean —
-            and an accredited 1:1 academy training the next generation of microblading artists, in
+            Natural, confidence-enhancing microblading, lip blush, brows and lashes by Jasmine
+            Crean, and an accredited 1:1 academy training the next generation of microblading artists, in
             Crowthorne, Berkshire.
           </Reveal>
           <Reveal className="hero-actions" delay={0.24}>
@@ -204,7 +204,7 @@ export default function Home() {
           <div className="intro-grid">
             <Reveal className="intro-figure">
               <div className="img-frame">
-                <Image src="/images/client-brows-result.webp" alt="Natural microbladed brows — a Beauty Within client result"
+                <Image src="/images/client-brows-result.webp" alt="Natural microbladed brows, a Beauty Within client result"
                   width={1100} height={1924} sizes="(max-width: 1024px) 90vw, 45vw"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
@@ -216,16 +216,16 @@ export default function Home() {
               </Reveal>
               <Reveal as="p" delay={0.12}>
                 Whether you are in the chair or learning the craft yourself, everything starts with a
-                personalised, 1-1 approach — soft, balanced and beautifully natural, designed around the
-                person in front of her.
+                personalised, 1-1 approach that is soft, balanced and beautifully natural, designed
+                around the person in front of her.
               </Reveal>
               <Reveal as="p" delay={0.18}>
                 It is a calm, welcoming space built on care, attention and the trust of clients and
-                students alike — many of whom return year after year.
+                students alike, many of whom return year after year.
               </Reveal>
               <Reveal as="p" delay={0.24}>
-                Jasmine specialises in semi-permanent makeup and one-to-one microblading training only —
-                not nails, hair or waxing — so every appointment and every course gets her full attention.
+                Jasmine specialises only in semi-permanent makeup and one-to-one microblading
+                training (not nails, hair or waxing), so every appointment and every course gets her full attention.
               </Reveal>
               <Reveal as="div" className="intro-sign" delay={0.3}>
                 Jasmine Crean
@@ -254,8 +254,8 @@ export default function Home() {
               Begin your microblading <em>career</em>
             </Reveal>
             <Reveal as="p" className="lead" delay={0.12}>
-              An accredited, 1:1 microblading course for complete beginners — designed to build real
-              skill, confidence and strong foundations, with continued support every step of the way.
+              An accredited, 1:1 microblading course for complete beginners. It is designed to build
+              real skill, confidence and strong foundations, with continued support at every stage.
             </Reveal>
           </div>
 
@@ -264,8 +264,8 @@ export default function Home() {
               <span className="badge"><Award style={{ width: 14, height: 14 }} /> ABT Accredited</span>
               <h3>3-Day Beginner Microblading Course</h3>
               <p>
-                One-to-one, beginner-friendly training in Jasmine&rsquo;s signature technique — with a
-                full professional kit, live model experience and an insurable certificate on completion.
+                One-to-one, beginner-friendly training in Jasmine&rsquo;s signature technique, with
+                a full professional kit, live model experience and an insurable certificate on completion.
               </p>
               <ul className="includes">
                 {HOME_INCLUDES.map((item) => (
@@ -302,7 +302,7 @@ export default function Home() {
               Prefer to be in the chair?
             </Reveal>
             <Reveal as="p" className="lead" delay={0.12}>
-              Professional semi-permanent makeup, tailored to you — every treatment begins with a
+              Professional semi-permanent makeup, tailored to you. Every treatment begins with a
               personalised consultation for the most flattering result.
             </Reveal>
           </div>
@@ -336,14 +336,14 @@ export default function Home() {
               Real client <em>transformations</em>
             </Reveal>
             <Reveal as="p" className="lead" delay={0.12}>
-              Beautifully tailored results — natural, confidence-enhancing and designed around every
-              individual client.
+              Beautifully tailored results that are natural, confidence-enhancing and designed
+              around every individual client.
             </Reveal>
           </div>
           <div className="portfolio-grid">
             {GALLERY.map((g, i) => (
               <Reveal className={`pf ${g.cls}`} key={g.img} delay={(i % 4) * 0.06}>
-                <Image src={g.img} alt={`${g.cat} — client result`} fill
+                <Image src={g.img} alt={`${g.cat}, client result`} fill
                   sizes="(max-width: 680px) 50vw, 25vw" />
                 <span className="cap"><b>{g.cat}</b><span>Beauty Within</span></span>
               </Reveal>
@@ -389,7 +389,7 @@ export default function Home() {
                 </Reveal>
                 <Reveal className="cred" delay={0.18}>
                   <GradCap />
-                  <div><b>Accredited Training & Mentorship</b><p>Teaching thoroughly, building confidence and supporting students every step of the way.</p></div>
+                  <div><b>Accredited Training & Mentorship</b><p>Teaching thoroughly, building confidence and supporting students at every stage.</p></div>
                 </Reveal>
               </div>
             </div>
@@ -491,7 +491,7 @@ export default function Home() {
                 <Image src="/images/logo-footer.png" alt="Beauty Within by Jasmine" width={1168} height={520} className="brand-logo brand-logo-footer" />
               </div>
               <p className="footer-blurb">
-                Luxury semi-permanent makeup tailored to you — microblading, lip blush, brows and lash
+                Luxury semi-permanent makeup tailored to you: microblading, lip blush, brows and lash
                 lift &amp; tint, plus accredited 1:1 training in Crowthorne, Berkshire.
               </p>
               <div style={{ display: 'flex', gap: 14, marginTop: 24 }}>
